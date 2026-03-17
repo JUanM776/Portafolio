@@ -1,0 +1,165 @@
+/* app/globals.css — CSS custom properties, resets, and base animation styles */
+@import "tailwindcss";
+
+:root {
+  --font-display: "Monsieur La Doulaise", cursive;
+  --font-body: "DM Mono", monospace;
+
+  /* Brand palette */
+  --ink:        #0a0a0a;
+  --parchment:  #e8e4dc;
+  --warm-mid:   #c4bfb4;
+  --accent:     #d4a853;   /* amber-gold */
+  --accent-dim: #8a6e35;
+  --surface:    #141414;
+  --border:     #2a2a2a;
+}
+
+/* ── Smooth scrolling ── */
+html { scroll-behavior: smooth; }
+
+/* ── Base typography ── */
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Scroll-reveal animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Stagger helpers */
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.55s; }
+
+/* ── Noise texture overlay on hero ── */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Accent underline for section labels ── */
+.label-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.label-tag::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ── Horizontal rule ── */
+hr.section-rule {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Card hover lift ── */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+}
+
+/* ── CV button glow ── */
+.btn-cv {
+  position: relative;
+  overflow: hidden;
+}
+.btn-cv::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-cv:hover::before { opacity: 1; }
+.btn-cv span { position: relative; z-index: 1; }
+
+/* ── Avatar guide animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes bubble {
+  0%   { opacity: 0; transform: translateY(8px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pop {
+  0%   { opacity: 0; transform: scale(0.3) translateY(20px); }
+  60%  { transform: scale(1.1) translateY(-4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-6deg); }
+  75%       { transform: rotate(6deg); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+}
+.animate-bubble {
+  animation: bubble 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.animate-pop {
+  animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* ── Skills marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Mobile menu transition ── */
+.mobile-menu {
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+  overflow: hidden;
+}
