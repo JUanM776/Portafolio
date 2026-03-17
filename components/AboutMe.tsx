@@ -14,6 +14,7 @@ const INTERESTS = [
       { src: "/interests/Esteban_Rojas.jpg", pos: "center" },
       { src: "/interests/Bongos.jpg"},
       { src: "/interests/Carnaval.JPG"},
+      { src: "/interests/chuyin.jpg"},
     ],
   },
   {
