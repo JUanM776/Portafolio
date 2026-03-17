@@ -1,73 +1,135 @@
-"use client";
-// components/Skills.tsx — cápsula con ticker infinito, íconos desde public/icons
+﻿"use client";
+import { useRef, useState, useEffect } from "react";
+import { motion, useInView, animate } from "framer-motion";
 
 const SKILLS = [
-  { name: "React",      icon: "/icons/react_dark.svg" },
-  { name: "Next.js",    icon: "/icons/nextjs_icon_dark.svg" },
-  { name: "TypeScript", icon: "/icons/typescript.svg" },
-  { name: "JavaScript", icon: "/icons/javascript.svg" },
-  { name: "Node.js",    icon: "/icons/nodejs.svg" },
-  { name: "Tailwind",   icon: "/icons/tailwindcss.svg" },
-  { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
-  { name: "MongoDB",    icon: "/icons/mongodb-icon-dark.svg" },
-  { name: "MySQL",      icon: "/icons/mysql-wordmark-dark.svg" },
-  { name: "Python",     icon: "/icons/python.svg" },
-  { name: "Java",       icon: "/icons/java.svg" },
-  { name: "Angular",    icon: "/icons/angular.svg" },
-  { name: "Git",        icon: "/icons/git.svg" },
-  { name: "Figma",      icon: "/icons/figma.svg" },
+  { name: "React",      icon: "/icons/react_dark.svg",          color: "#61dafb", level: 90 },
+  { name: "TypeScript", icon: "/icons/typescript.svg",          color: "#3178c6", level: 85 },
+  { name: "Next.js",    icon: "/icons/nextjs_icon_dark.svg",    color: "#ffffff", level: 82 },
+  { name: "Tailwind",   icon: "/icons/tailwindcss.svg",         color: "#38bdf8", level: 88 },
+  { name: "JavaScript", icon: "/icons/javascript.svg",          color: "#f7df1e", level: 92 },
+  { name: "Node.js",    icon: "/icons/nodejs.svg",              color: "#68a063", level: 75 },
+  { name: "Python",     icon: "/icons/python.svg",              color: "#3776ab", level: 70 },
+  { name: "PostgreSQL", icon: "/icons/postgresql.svg",          color: "#336791", level: 68 },
+  { name: "MongoDB",    icon: "/icons/mongodb-icon-dark.svg",   color: "#47a248", level: 72 },
+  { name: "Angular",    icon: "/icons/angular.svg",             color: "#dd0031", level: 65 },
+  { name: "Java",       icon: "/icons/java.svg",                color: "#f89820", level: 60 },
+  { name: "MySQL",      icon: "/icons/mysql-wordmark-dark.svg", color: "#00758f", level: 70 },
+  { name: "Git",        icon: "/icons/git.svg",                 color: "#f05032", level: 85 },
+  { name: "Figma",      icon: "/icons/figma.svg",               color: "#a259ff", level: 78 },
 ];
 
-const TRACK = [...SKILLS, ...SKILLS];
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%";
+
+function useScramble(text: string, trigger: boolean) {
+  const [display, setDisplay] = useState(text);
+  useEffect(() => {
+    if (!trigger) { setDisplay(text); return; }
+    let frame = 0;
+    const total = 14;
+    const id = setInterval(() => {
+      setDisplay(
+        text.split("").map((char, i) =>
+          frame / total > i / text.length
+            ? char
+            : CHARS[Math.floor(Math.random() * CHARS.length)]
+        ).join("")
+      );
+      frame++;
+      if (frame > total) { setDisplay(text); clearInterval(id); }
+    }, 30);
+    return () => clearInterval(id);
+  }, [trigger, text]);
+  return display;
+}
+
+function SkillRow({ name, icon, color, level, index }: {
+  name: string; icon: string; color: string; level: number; index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const [hovered, setHovered] = useState(false);
+  const scrambled = useScramble(name.toUpperCase(), hovered);
+
+  useEffect(() => {
+    if (!inView || !barRef.current) return;
+    animate(barRef.current, { width: ["0%", `${level}%`] }, {
+      duration: 1.2, delay: index * 0.07, ease: [0.22, 1, 0.36, 1],
+    });
+  }, [inView, level, index]);
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      initial={{ opacity: 0, x: -20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className="relative flex items-center gap-5 py-4 px-5 overflow-hidden"
+      style={{
+        background: hovered ? `${color}08` : "transparent",
+        borderBottom: "1px solid #1a1a1a",
+        transition: "background 0.3s",
+      }}
+    >
+      <span
+        className="absolute right-5 top-1/2 -translate-y-1/2 text-6xl font-black pointer-events-none select-none"
+        style={{ color: hovered ? `${color}18` : "transparent", transition: "color 0.3s", lineHeight: 1 }}
+      >
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <motion.div
+        animate={{ rotate: hovered ? 360 : 0 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl"
+        style={{
+          background: hovered ? `${color}15` : "#0d0d0d",
+          border: `1.5px solid ${hovered ? color + "50" : "#2a2a2a"}`,
+          boxShadow: hovered ? `0 0 16px ${color}30` : "none",
+          transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
+        }}
+      >
+        <img src={icon} alt={name} className="w-5 h-5 object-contain" />
+      </motion.div>
+
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm font-bold tracking-widest" style={{ color: hovered ? color : "#e8e4dc", fontFamily: "monospace", transition: "color 0.2s" }}>
+            {scrambled}
+          </span>
+          <motion.span animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.2 }} className="text-[10px] font-semibold tabular-nums" style={{ color }}>
+            {level}%
+          </motion.span>
+        </div>
+        <div className="relative h-[3px] w-full rounded-full bg-[#1e1e1e] overflow-hidden">
+          <div ref={barRef} className="absolute left-0 top-0 h-full rounded-full" style={{ width: "0%", background: `linear-gradient(90deg, ${color}70, ${color})`, boxShadow: hovered ? `0 0 8px ${color}` : "none", transition: "box-shadow 0.3s" }} />
+          {hovered && (
+            <motion.div initial={{ x: "-100%" }} animate={{ x: "300%" }} transition={{ duration: 0.9, ease: "easeInOut" }} className="absolute top-0 h-full w-1/4 pointer-events-none" style={{ background: `linear-gradient(90deg, transparent, ${color}cc, transparent)` }} />
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Skills() {
   return (
     <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
-
-      {/* Layout: texto izquierda | carrusel derecha */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-        {/* LEFT: header + blurb */}
-        <div className="lg:col-span-4">
+      <div className="flex flex-col lg:flex-row gap-16 items-start">
+        <div className="lg:w-72 shrink-0 lg:sticky lg:top-32">
           <p className="label-tag reveal mb-4">Lo que uso</p>
-          <h2 className="reveal delay-100 font-display text-5xl sm:text-6xl text-[#e8e4dc] leading-none mb-6">
-            Skills
-          </h2>
-          <p className="reveal delay-200 text-[#c4bfb4] text-sm md:text-base leading-relaxed mb-6">
-            Estas son las tecnologías con las que trabajo día a día. Me apasiona el frontend pero también
-            me muevo cómodo en el backend y las herramientas de diseño.
-          </p>
-          <p className="reveal delay-300 text-[#c4bfb4]/60 text-xs leading-relaxed">
-            Siempre aprendiendo algo nuevo — el stack evoluciona y yo con él.
-          </p>
+          <h2 className="reveal delay-100 font-display text-5xl sm:text-6xl text-[#e8e4dc] leading-none mb-6">Skills</h2>
+          <p className="reveal delay-200 text-[#c4bfb4] text-sm leading-relaxed mb-4">Estas son las tecnologias con las que trabajo dia a dia. Me apasiona el frontend pero tambien me muevo comodo en el backend y las herramientas de diseno.</p>
+          <p className="reveal delay-300 text-[#c4bfb4]/40 text-xs">Pasa el cursor sobre cada skill</p>
         </div>
-
-        {/* RIGHT: cápsula con carrusel */}
-        <div className="lg:col-span-8">
-          <div className="reveal delay-200 relative border border-[#2a2a2a] bg-[#141414]/60 backdrop-blur-sm rounded-2xl overflow-hidden py-10">
-            {/* Fades laterales */}
-            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#141414] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#141414] to-transparent z-10 pointer-events-none" />
-
-            {/* Track */}
-            <div className="animate-marquee flex items-center gap-4 w-max px-4">
-              {TRACK.map(({ name, icon }, i) => (
-                <div
-                  key={`${name}-${i}`}
-                  className="flex flex-col items-center justify-center gap-3 border border-[#2a2a2a] bg-[#0a0a0a]/80 hover:border-[#d4a853]/60 hover:bg-[#1e1a14] transition-all duration-300 rounded-xl px-8 py-7 min-w-[130px]"
-                >
-                  <div className="w-14 h-14 flex items-center justify-center">
-                    <img src={icon} alt={name} className="w-full h-full object-contain" />
-                  </div>
-                  <span className="text-[10px] font-medium tracking-widest uppercase text-[#c4bfb4] whitespace-nowrap">
-                    {name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="reveal delay-200 flex-1 border border-[#1e1e1e] rounded-2xl overflow-hidden bg-[#0a0a0a]/60 backdrop-blur-sm">
+          {SKILLS.map(({ name, icon, color, level }, i) => (
+            <SkillRow key={name} name={name} icon={icon} color={color} level={level} index={i} />
+          ))}
         </div>
-
       </div>
     </section>
   );

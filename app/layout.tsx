@@ -1,19 +1,13 @@
 // app/layout.tsx — Root layout: sets metadata, imports fonts, wraps the app
 import type { Metadata } from "next";
-import { Monsieur_La_Doulaise, DM_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import AvatarGuide from "@/components/AvatarGuide";
 
-const monsieurLaDoulaise = Monsieur_La_Doulaise({
+const inter = Inter({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-display",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${monsieurLaDoulaise.variable} ${dmMono.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="relative">
         <div className="fixed inset-0 bg-black/60 -z-10" />
         {children}

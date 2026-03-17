@@ -60,6 +60,9 @@ const INTERESTS = [
 // Mini carrusel por tarjeta
 type ImageItem = { src: string; pos?: string } | string;
 
+function getSrc(img: ImageItem) { return typeof img === "string" ? img : img.src; }
+function getPos(img: ImageItem) { return typeof img === "string" ? "center" : (img.pos ?? "center"); }
+
 function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: string; title: string }) {
   const [current, setCurrent] = useState(0);
   const [hovered, setHovered] = useState(false);
@@ -80,22 +83,19 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
     );
   }
 
-
-
   return (
     <div
       className="relative w-full h-48 overflow-hidden"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Todas las imágenes apiladas, se deslizan lateralmente con CSS */}
       <div
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ width: `${images.length * 100}%`, transform: `translateX(-${current * (100 / images.length)}%)` }}
       >
         {images.map((img, i) => {
-          const s = typeof img === "string" ? img : img.src;
-          const p = typeof img === "string" ? "center" : (img.pos ?? "center");
+          const s = getSrc(img);
+          const p = getPos(img);
           return (
             <div key={i} className="h-full shrink-0" style={{ width: `${100 / images.length}%` }}>
               <img
