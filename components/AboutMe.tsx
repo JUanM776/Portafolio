@@ -42,7 +42,12 @@ const INTERESTS = [
     emoji: "🌍",
     title: "Viajes",
     description: "Me gusta conocer nuevos lugares, ya que pienso es conocer un poco mas de la cultura de las personas y de nuevas oportunidades. Tambien me gusta explorar y conocer nuevos lugares lo que me ha llevado a conocer gran parte de Colombia",
-    images: [],
+    images: [
+      {src: "/interests/Comuna.jpg"},
+      {src: "/interests/Cali.jpg"},
+      {src: "/interests/sandona.jpg", pos: "bottom center"},
+      {src: "/interests/yop.jpg", pos: "top center"}
+    ],
   },
   {
     emoji: "☕",
