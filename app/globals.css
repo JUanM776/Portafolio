@@ -1,4 +1,4 @@
-/* app/globals.css — CSS custom properties, resets, and base animation styles */
+﻿/* app/globals.css â€” CSS custom properties, resets, and base animation styles */
 @import "tailwindcss";
 
 :root {
@@ -7,18 +7,18 @@
 
   /* Brand palette */
   --ink:        #0a0a0a;
-  --parchment:  #e8e4dc;
-  --warm-mid:   #c4bfb4;
-  --accent:     #d4a853;   /* amber-gold */
-  --accent-dim: #8a6e35;
+  --parchment:  #f5f5f5;
+  --warm-mid:   #a8b2c1;
+  --accent:     #93c5fd;   /* emerald mint */
+  --accent-dim: #60a5fa;
   --surface:    #141414;
   --border:     #2a2a2a;
 }
 
-/* ── Smooth scrolling ── */
+/* â”€â”€ Smooth scrolling â”€â”€ */
 html { scroll-behavior: smooth; }
 
-/* ── Base typography ── */
+/* â”€â”€ Base typography â”€â”€ */
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -31,9 +31,14 @@ h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.8);
 }
 
-/* ── Scroll-reveal animation ── */
+p, span, a {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+}
+
+/* â”€â”€ Scroll-reveal animation â”€â”€ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -51,7 +56,7 @@ h1, h2, h3, h4 {
 .delay-400 { animation-delay: 0.40s; }
 .delay-500 { animation-delay: 0.55s; }
 
-/* ── Noise texture overlay on hero ── */
+/* â”€â”€ Noise texture overlay on hero â”€â”€ */
 .noise::after {
   content: "";
   position: absolute;
@@ -61,7 +66,7 @@ h1, h2, h3, h4 {
   z-index: 1;
 }
 
-/* ── Accent underline for section labels ── */
+/* â”€â”€ Accent underline for section labels â”€â”€ */
 .label-tag {
   display: inline-flex;
   align-items: center;
@@ -81,13 +86,13 @@ h1, h2, h3, h4 {
   background: var(--accent);
 }
 
-/* ── Horizontal rule ── */
+/* â”€â”€ Horizontal rule â”€â”€ */
 hr.section-rule {
   border: none;
   border-top: 1px solid var(--border);
 }
 
-/* ── Card hover lift ── */
+/* â”€â”€ Card hover lift â”€â”€ */
 .card-lift {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.3s ease;
@@ -97,7 +102,7 @@ hr.section-rule {
   box-shadow: 0 24px 48px rgba(0,0,0,0.5);
 }
 
-/* ── CV button glow ── */
+/* â”€â”€ CV button glow â”€â”€ */
 .btn-cv {
   position: relative;
   overflow: hidden;
@@ -113,7 +118,7 @@ hr.section-rule {
 .btn-cv:hover::before { opacity: 1; }
 .btn-cv span { position: relative; z-index: 1; }
 
-/* ── Avatar guide animations ── */
+/* â”€â”€ Avatar guide animations â”€â”€ */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
@@ -146,7 +151,7 @@ hr.section-rule {
   animation: wiggle 0.5s ease-in-out;
 }
 
-/* ── Skills marquee ── */
+/* â”€â”€ Skills marquee â”€â”€ */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -168,7 +173,7 @@ hr.section-rule {
   animation-play-state: paused;
 }
 
-/* ── Mobile menu transition ── */
+/* â”€â”€ Mobile menu transition â”€â”€ */
 .mobile-menu {
   transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
   overflow: hidden;

@@ -1,5 +1,5 @@
-// components/Projects.tsx
-// Featured work section — tarjetas con hover reveal overlay.
+﻿// components/Projects.tsx
+// Featured work section â€” tarjetas con hover reveal overlay.
 
 "use client";
 
@@ -14,7 +14,7 @@ const PROJECTS = [
     tags: ["React", "TypeScript", "Storybook", "Figma"],
     featured: true,
     gradient: "from-[#1a1508] to-[#0f0f0f]",
-    accent: "#d4a853",
+    accent: "#93c5fd",
     link: "#",
   },
   {
@@ -58,7 +58,7 @@ const PROJECTS = [
   },
 ];
 
-// Arrow icon component — avoids importing a library for a single glyph
+// Arrow icon component â€” avoids importing a library for a single glyph
 function ArrowIcon() {
   return (
     <svg
@@ -85,11 +85,11 @@ export default function Projects() {
     <section id="projects" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
       <hr className="section-rule mb-16" />
 
-      {/* Section header — flex row space-between */}
+      {/* Section header â€” flex row space-between */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
         <div>
           <p className="label-tag mb-3">Selected work</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[#e8e4dc]">
+          <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">
             Projects
           </h2>
         </div>
@@ -97,14 +97,14 @@ export default function Projects() {
           href="https://github.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-xs tracking-widest uppercase text-[#c4bfb4] hover:text-[#d4a853] transition-colors self-start sm:self-end"
+          className="flex items-center gap-2 text-xs tracking-widest uppercase text-[#a8b2c1] hover:text-[#93c5fd] transition-colors self-start sm:self-end"
         >
           All on GitHub <ArrowIcon />
         </a>
       </header>
 
-      {/* ── Project grid ──
-          grid-cols-1 → sm:grid-cols-2 → xl:grid-cols-3
+      {/* â”€â”€ Project grid â”€â”€
+          grid-cols-1 â†’ sm:grid-cols-2 â†’ xl:grid-cols-3
           Featured card spans 2 cols on sm+ (col-span-2) / 1 on mobile */}
       <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 list-none">
         {PROJECTS.map((p) => (
@@ -132,14 +132,14 @@ export default function Projects() {
                 <span className="text-[10px] text-[#555] font-medium">{p.year}</span>
               </div>
 
-              <h3 className="font-display text-2xl md:text-3xl text-[#e8e4dc] mb-3">
+              <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-3">
                 {p.title}
               </h3>
               <p className="text-[#8a8680] text-sm leading-relaxed mb-6 flex-1">
                 {p.description}
               </p>
 
-              {/* Tags — visibles siempre */}
+              {/* Tags â€” visibles siempre */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {p.tags.map((t) => (
                   <span
@@ -161,7 +161,7 @@ export default function Projects() {
               </a>
             </div>
 
-            {/* ── Hover overlay — sube desde abajo ── */}
+            {/* â”€â”€ Hover overlay â€” sube desde abajo â”€â”€ */}
             <div
               className="absolute inset-0 flex flex-col justify-end p-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{ background: `linear-gradient(to top, ${p.accent}18 0%, #0f0f0fee 40%)` }}
@@ -173,14 +173,14 @@ export default function Projects() {
                 className="text-[10px] tracking-widest uppercase font-medium mb-2"
                 style={{ color: p.accent }}
               >
-                {p.category} · {p.year}
+                {p.category} Â· {p.year}
               </span>
 
-              <h3 className="font-display text-2xl md:text-3xl text-[#e8e4dc] mb-3">
+              <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-3">
                 {p.title}
               </h3>
 
-              <p className="text-[#c4bfb4] text-sm leading-relaxed mb-5">
+              <p className="text-[#a8b2c1] text-sm leading-relaxed mb-5">
                 {p.description}
               </p>
 

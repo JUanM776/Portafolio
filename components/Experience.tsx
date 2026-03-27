@@ -1,10 +1,6 @@
-"use client";
-// components/Experience.tsx
-// Academic & Work Experience section with tab switcher.
-// Layout: flex column outer; two-col grid on lg (timeline | detail panel).
-// Uses Tailwind `order` utilities so timeline is reordered on mobile.
-
+﻿"use client";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Tab = "work" | "academic";
 
@@ -28,7 +24,7 @@ const WORK = [
     period: "2020 — 2022",
     location: "Austin, TX",
     achievements: [
-      "Built the Flux Analytics Platform from 0→1, now serving 200+ enterprise clients.",
+      "Built the Flux Analytics Platform from 0 to 1, now serving 200+ enterprise clients.",
       "Implemented a Kafka-based pipeline ingesting 50M events/day into ClickHouse.",
       "Mentored 3 junior developers; introduced pair-programming sessions company-wide.",
     ],
@@ -41,7 +37,7 @@ const WORK = [
     location: "New York, NY",
     achievements: [
       "Developed the Sprout iOS/Android app reaching #4 in Health & Fitness on the App Store.",
-      "Rebuilt the web dashboard in React, cutting load time from 4.8s → 1.2s.",
+      "Rebuilt the web dashboard in React, cutting load time from 4.8s to 1.2s.",
       "Established company-wide testing standards; raised test coverage from 24% to 78%.",
     ],
   },
@@ -56,7 +52,7 @@ const ACADEMIC = [
     location: "Stanford, CA",
     achievements: [
       "Specialisation in Human-Computer Interaction and Distributed Systems.",
-      "Thesis: \"Adaptive UI generation from structured design tokens\" (advisor: Prof. L. Cardoso).",
+      "Thesis: Adaptive UI generation from structured design tokens.",
       "GPA 3.92 / 4.0 — Graduate Fellowship recipient.",
     ],
   },
@@ -68,7 +64,7 @@ const ACADEMIC = [
     location: "Austin, TX",
     achievements: [
       "Dean's List all eight semesters; graduated summa cum laude.",
-      "President of the Open Source Society — grew membership 3× in two years.",
+      "President of the Open Source Society — grew membership 3x in two years.",
       "Teaching assistant for Algorithms and Data Structures (CS 311).",
     ],
   },
@@ -85,151 +81,136 @@ const ACADEMIC = [
   },
 ];
 
-// Check mark icon
-function CheckIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      aria-hidden
-      className="flex-shrink-0 mt-1"
-    >
-      <circle cx="7" cy="7" r="6.5" stroke="#d4a853" strokeOpacity="0.4" />
-      <path
-        d="M4.5 7l2 2 3-3"
-        stroke="#d4a853"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<Tab>("work");
-  const [active, setActive] = useState(0); // selected item index
-
+  const [active, setActive] = useState(0);
   const items = activeTab === "work" ? WORK : ACADEMIC;
   const selected = items[active] ?? items[0];
-
-  // Switch tab and reset selection
-  const switchTab = (tab: Tab) => {
-    setActiveTab(tab);
-    setActive(0);
-  };
 
   return (
     <section id="experience" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
       <hr className="section-rule mb-16" />
 
-      {/* Section header */}
-      <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+      {/* Header */}
+      <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
         <div>
           <p className="label-tag mb-3">Background</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[#e8e4dc]">
-            Experience
-          </h2>
+          <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">Experience</h2>
         </div>
-
-        {/* Tab switcher — inline flex pill */}
-        <div
-          role="tablist"
-          aria-label="Experience type"
-          className="flex self-start sm:self-end bg-[#141414] border border-[#2a2a2a] rounded-sm overflow-hidden"
-        >
+        {/* Tab pills */}
+        <div className="flex self-start sm:self-end gap-2">
           {(["work", "academic"] as Tab[]).map((tab) => (
             <button
               key={tab}
-              role="tab"
-              aria-selected={activeTab === tab}
-              onClick={() => switchTab(tab)}
-              className={`px-5 py-2 text-[10px] font-medium tracking-widest uppercase transition-colors duration-200 ${
+              onClick={() => { setActiveTab(tab); setActive(0); }}
+              className={`px-6 py-2.5 rounded-full text-[11px] font-semibold tracking-widest uppercase transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-[#d4a853] text-[#0a0a0a]"
-                  : "text-[#666] hover:text-[#c4bfb4]"
+                  ? "bg-[#93c5fd] text-[#0a0a0a] shadow-lg shadow-[#93c5fd]/25"
+                  : "border border-[#2a2a2a] text-[#666] hover:border-[#93c5fd]/40 hover:text-[#a8b2c1]"
               }`}
             >
-              {tab === "work" ? "Work" : "Academic"}
+              {tab === "work" ? "Laboral" : "Académico"}
             </button>
           ))}
         </div>
       </header>
 
-      {/* ── Two-column grid on large screens ──
-          col 1 (timeline list) = 5/12    col 2 (detail card) = 7/12
-          On mobile: detail card appears FIRST (order-1) then timeline (order-2) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-        {/* ── Timeline list ── order-2 mobile → order-1 lg */}
-        <ol className="lg:col-span-5 order-2 lg:order-1 flex flex-col gap-2 list-none">
-          {items.map((item, idx) => (
-            <li key={item.id}>
-              <button
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-6"
+        >
+          {/* Lista izquierda */}
+          <div className="lg:col-span-5 flex flex-col gap-3">
+            {items.map((item, idx) => (
+              <motion.button
+                key={item.id}
                 onClick={() => setActive(idx)}
-                aria-current={active === idx ? "true" : undefined}
-                className={`w-full text-left p-5 rounded-sm border transition-all duration-200 ${
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.08, duration: 0.4 }}
+                className={`group w-full text-left rounded-xl border p-5 transition-all duration-300 ${
                   active === idx
-                    ? "bg-[#1a1508] border-[#d4a853]/50 text-[#e8e4dc]"
-                    : "bg-[#141414] border-[#2a2a2a] text-[#8a8680] hover:border-[#444] hover:text-[#c4bfb4]"
+                    ? "bg-[#0d1520] border-[#93c5fd]/60 shadow-lg shadow-[#93c5fd]/10"
+                    : "bg-[#141414]/80 border-[#2a2a2a] hover:border-[#93c5fd]/30 hover:bg-[#141414]"
                 }`}
               >
-                {/* flex row: role + period */}
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="font-medium text-sm mb-0.5">{item.role}</p>
-                    <p
-                      className={`text-xs ${
-                        active === idx ? "text-[#d4a853]" : "text-[#555]"
-                      }`}
-                    >
+                <div className="flex items-center gap-4">
+                  {/* Número */}
+                  <span
+                    className={`text-2xl font-black tabular-nums shrink-0 transition-colors duration-300 ${active === idx ? "text-[#93c5fd]" : "text-[#2a2a2a] group-hover:text-[#3a3a3a]"}`}
+                  >
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className={`font-semibold text-sm truncate transition-colors duration-200 ${active === idx ? "text-[#f5f5f5]" : "text-[#8a8680] group-hover:text-[#c4c4c4]"}`}>
+                      {item.role}
+                    </p>
+                    <p className={`text-xs mt-0.5 transition-colors duration-200 ${active === idx ? "text-[#93c5fd]" : "text-[#555]"}`}>
                       {item.company}
                     </p>
                   </div>
-                  <span className="text-[10px] tracking-wide flex-shrink-0 mt-0.5">
-                    {item.period}
-                  </span>
+                  <span className="text-[10px] text-[#444] shrink-0">{item.period.split("—")[0].trim()}</span>
                 </div>
-              </button>
-            </li>
-          ))}
-        </ol>
-
-        {/* ── Detail panel ── order-1 mobile → order-2 lg */}
-        {/* Uses `order` utility to appear above timeline on small screens */}
-        <article
-          role="tabpanel"
-          aria-label={selected.role}
-          className="lg:col-span-7 order-1 lg:order-2 bg-[#141414] border border-[#2a2a2a] rounded-sm p-8"
-        >
-          {/* Accent top line */}
-          <div className="w-10 h-px bg-[#d4a853] mb-6" />
-
-          <h3 className="font-display text-3xl md:text-4xl text-[#e8e4dc] mb-2">
-            {selected.role}
-          </h3>
-          <p className="text-[#d4a853] text-sm font-medium mb-1">
-            {selected.company}
-          </p>
-          <p className="text-[#555] text-xs tracking-wide mb-8">
-            {selected.period} · {selected.location}
-          </p>
-
-          {/* Achievements list */}
-          <ul className="flex flex-col gap-4 list-none">
-            {selected.achievements.map((ach, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckIcon />
-                <span className="text-[#c4bfb4] text-sm leading-relaxed">
-                  {ach}
-                </span>
-              </li>
+                {/* Barra de progreso activa */}
+                <div className="mt-3 h-px w-full bg-[#1e1e1e] overflow-hidden rounded-full">
+                  <motion.div
+                    animate={{ width: active === idx ? "100%" : "0%" }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="h-full bg-[#93c5fd] rounded-full"
+                  />
+                </div>
+              </motion.button>
             ))}
-          </ul>
-        </article>
-      </div>
+          </div>
+
+          {/* Panel derecho */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${activeTab}-${active}`}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-7 bg-[#0d0d0d]/90 backdrop-blur-md border border-[#2a2a2a] rounded-2xl p-8 flex flex-col"
+            >
+              {/* Top accent */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-8 rounded-lg bg-[#93c5fd]/10 border border-[#93c5fd]/30 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-[#93c5fd]" />
+                </div>
+                <div className="flex-1 h-px bg-linear-to-r from-[#93c5fd]/40 to-transparent" />
+                <span className="text-[10px] text-[#555] tracking-widest uppercase">{selected.period}</span>
+              </div>
+
+              <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-1">{selected.role}</h3>
+              <p className="text-[#93c5fd] text-sm font-semibold mb-1">{selected.company}</p>
+              <p className="text-[#444] text-xs tracking-wide mb-8">{selected.location}</p>
+
+              <div className="flex flex-col gap-4 flex-1">
+                {selected.achievements.map((ach, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08, duration: 0.35 }}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-[#141414]/60 border border-[#1e1e1e]"
+                  >
+                    <div className="w-5 h-5 rounded-full bg-[#93c5fd]/10 border border-[#93c5fd]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]" />
+                    </div>
+                    <span className="text-[#a8b2c1] text-sm leading-relaxed">{ach}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }

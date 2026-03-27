@@ -74,13 +74,20 @@ function SkillRow({ name, icon, color, level, index }: {
         transition: "background 0.3s",
       }}
     >
+      {/* NÃºmero grande de fondo */}
       <span
         className="absolute right-5 top-1/2 -translate-y-1/2 text-6xl font-black pointer-events-none select-none"
-        style={{ color: hovered ? `${color}18` : "transparent", transition: "color 0.3s", lineHeight: 1 }}
+        style={{
+          color: hovered ? `${color}18` : "transparent",
+          fontVariantNumeric: "tabular-nums",
+          transition: "color 0.3s",
+          lineHeight: 1,
+        }}
       >
         {String(index + 1).padStart(2, "0")}
       </span>
 
+      {/* Icono con rotaciÃ³n */}
       <motion.div
         animate={{ rotate: hovered ? 360 : 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -95,19 +102,49 @@ function SkillRow({ name, icon, color, level, index }: {
         <img src={icon} alt={name} className="w-5 h-5 object-contain" />
       </motion.div>
 
+      {/* Nombre + barra */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-bold tracking-widest" style={{ color: hovered ? color : "#e8e4dc", fontFamily: "monospace", transition: "color 0.2s" }}>
+          <span
+            className="text-sm font-bold tracking-widest"
+            style={{
+              color: hovered ? color : "#e8e4dc",
+              fontFamily: "monospace",
+              transition: "color 0.2s",
+            }}
+          >
             {scrambled}
           </span>
-          <motion.span animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.2 }} className="text-[10px] font-semibold tabular-nums" style={{ color }}>
+          <motion.span
+            animate={{ opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-[10px] font-semibold tabular-nums"
+            style={{ color }}
+          >
             {level}%
           </motion.span>
         </div>
+
+        {/* Barra de nivel */}
         <div className="relative h-[3px] w-full rounded-full bg-[#1e1e1e] overflow-hidden">
-          <div ref={barRef} className="absolute left-0 top-0 h-full rounded-full" style={{ width: "0%", background: `linear-gradient(90deg, ${color}70, ${color})`, boxShadow: hovered ? `0 0 8px ${color}` : "none", transition: "box-shadow 0.3s" }} />
+          <div
+            ref={barRef}
+            className="absolute left-0 top-0 h-full rounded-full"
+            style={{
+              width: "0%",
+              background: `linear-gradient(90deg, ${color}70, ${color})`,
+              boxShadow: hovered ? `0 0 8px ${color}` : "none",
+              transition: "box-shadow 0.3s",
+            }}
+          />
           {hovered && (
-            <motion.div initial={{ x: "-100%" }} animate={{ x: "300%" }} transition={{ duration: 0.9, ease: "easeInOut" }} className="absolute top-0 h-full w-1/4 pointer-events-none" style={{ background: `linear-gradient(90deg, transparent, ${color}cc, transparent)` }} />
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: "300%" }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
+              className="absolute top-0 h-full w-1/4 pointer-events-none"
+              style={{ background: `linear-gradient(90deg, transparent, ${color}cc, transparent)` }}
+            />
           )}
         </div>
       </div>
@@ -119,17 +156,29 @@ export default function Skills() {
   return (
     <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row gap-16 items-start">
+
+        {/* LEFT sticky */}
         <div className="lg:w-72 shrink-0 lg:sticky lg:top-32">
           <p className="label-tag reveal mb-4">Lo que uso</p>
-          <h2 className="reveal delay-100 font-display text-5xl sm:text-6xl text-[#e8e4dc] leading-none mb-6">Skills</h2>
-          <p className="reveal delay-200 text-[#c4bfb4] text-sm leading-relaxed mb-4">Estas son las tecnologias con las que trabajo dia a dia. Me apasiona el frontend pero tambien me muevo comodo en el backend y las herramientas de diseno.</p>
-          <p className="reveal delay-300 text-[#c4bfb4]/40 text-xs">Pasa el cursor sobre cada skill</p>
+          <h2 className="reveal delay-100 font-display text-5xl sm:text-6xl text-[#e8e4dc] leading-none mb-6">
+            Skills
+          </h2>
+          <p className="reveal delay-200 text-[#c4bfb4] text-sm leading-relaxed mb-4">
+            Estas son las tecnologÃ­as con las que trabajo dÃ­a a dÃ­a. Me apasiona el frontend pero tambiÃ©n
+            me muevo cÃ³modo en el backend y las herramientas de diseÃ±o.
+          </p>
+          <p className="reveal delay-300 text-[#c4bfb4]/40 text-xs">
+            Pasa el cursor sobre cada skill â†—
+          </p>
         </div>
+
+        {/* RIGHT â€” lista columna Ãºnica */}
         <div className="reveal delay-200 flex-1 border border-[#1e1e1e] rounded-2xl overflow-hidden bg-[#0a0a0a]/60 backdrop-blur-sm">
           {SKILLS.map(({ name, icon, color, level }, i) => (
             <SkillRow key={name} name={name} icon={icon} color={color} level={level} index={i} />
           ))}
         </div>
+
       </div>
     </section>
   );

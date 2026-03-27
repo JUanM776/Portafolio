@@ -1,15 +1,15 @@
-"use client";
+﻿"use client";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 
 const MESSAGES: Record<string, string> = {
-  about:        "¡Hola! Soy Juan Manuel 👋\nBienvenido a mi portafolio",
-  skills:       "💻 Estas son las tecnologías\ncon las que trabajo",
-  projects:     "🚀 Aquí puedes ver\nmis proyectos",
-  testimonials: "🤝 Lo que dicen quienes\nhan trabajado conmigo",
-  experience:   "📋 Mi recorrido\nprofesional hasta hoy",
+  about:        "Â¡Hola! Soy Juan Manuel ðŸ‘‹\nBienvenido a mi portafolio",
+  skills:       "ðŸ’» Estas son las tecnologÃ­as\ncon las que trabajo",
+  projects:     "ðŸš€ AquÃ­ puedes ver\nmis proyectos",
+  testimonials: "ðŸ¤ Lo que dicen quienes\nhan trabajado conmigo",
+  experience:   "ðŸ“‹ Mi recorrido\nprofesional hasta hoy",
 };
-const DEFAULT_MSG = "✨ Explora mi portafolio\nhaciendo scroll";
+const DEFAULT_MSG = "âœ¨ Explora mi portafolio\nhaciendo scroll";
 
 function Doll({ action }: { action: string }) {
   const isWalk = action === "walk";
@@ -19,7 +19,7 @@ function Doll({ action }: { action: string }) {
   return (
     <div style={{ display:"flex", flexDirection:"column", alignItems:"center", width:72, gap:0 }}>
 
-      {/* ── Cabeza ── */}
+      {/* â”€â”€ Cabeza â”€â”€ */}
       <motion.div
         animate={isWave ? { rotate:[-6,6,-6,6,0] } : { rotate:0 }}
         transition={{ duration:0.7 }}
@@ -47,13 +47,13 @@ function Doll({ action }: { action: string }) {
           borderRadius:"50% 50% 0 0", background:"#3d2200" }} />
       </motion.div>
 
-      {/* ── Cuello ── */}
+      {/* â”€â”€ Cuello â”€â”€ */}
       <div style={{ width:12, height:8, background:"#f0c860", zIndex:1 }} />
 
-      {/* ── Torso + brazos ── */}
+      {/* â”€â”€ Torso + brazos â”€â”€ */}
       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"center", position:"relative" }}>
 
-        {/* Brazo izquierdo — sube y saluda desde el hombro */}
+        {/* Brazo izquierdo â€” sube y saluda desde el hombro */}
         <motion.div
           animate={isWave
             ? { rotate:[-80,-60,-80,-60,-80], transition:{ duration:0.4, repeat:3, ease:"easeInOut" } }
@@ -96,10 +96,10 @@ function Doll({ action }: { action: string }) {
         </motion.div>
       </div>
 
-      {/* ── Cintura / pantalón ── */}
+      {/* â”€â”€ Cintura / pantalÃ³n â”€â”€ */}
       <div style={{ width:34, height:6, background:"#1e3a5f", borderRadius:"0 0 2px 2px" }} />
 
-      {/* ── Piernas ── */}
+      {/* â”€â”€ Piernas â”€â”€ */}
       <div style={{ display:"flex", gap:4, marginTop:1 }}>
         <motion.div
           animate={isWalk ? {rotate:[28,-28,28], transition:{duration:0.45,repeat:3}}
@@ -160,7 +160,7 @@ export default function AvatarGuide() {
     startFloat();
   }, [bodyControls, startFloat]);
 
-  // Mensajes por sección — solo se registra una vez
+  // Mensajes por secciÃ³n â€” solo se registra una vez
   useEffect(() => {
     const ids = Object.keys(MESSAGES);
     const observers: IntersectionObserver[] = [];
@@ -179,7 +179,7 @@ export default function AvatarGuide() {
     });
     return () => observers.forEach((o) => o.disconnect());
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // array vacío — solo se monta una vez
+  }, []); // array vacÃ­o â€” solo se monta una vez
 
   useEffect(() => { startFloat(); }, [startFloat]);
 
@@ -192,15 +192,15 @@ export default function AvatarGuide() {
           animate={{ opacity:1, scale:1, y:0 }}
           exit={{ opacity:0, scale:0.8, y:10 }}
           transition={{ duration:0.35, ease:[0.34,1.56,0.64,1] }}
-          className="relative max-w-[220px] bg-[#1a1a1a] border border-[#d4a853]/50 rounded-2xl rounded-br-sm px-5 py-3 shadow-2xl"
+          className="relative max-w-[220px] bg-[#1a1a1a] border border-[#93c5fd]/50 rounded-2xl rounded-br-sm px-5 py-3 shadow-2xl"
         >
           <div className="flex gap-1 mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a853]/60" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a853]/40" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#d4a853]/20" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]/40" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]/20" />
           </div>
-          <p className="text-[12px] text-[#e8e4dc] leading-relaxed whitespace-pre-line">{message}</p>
-          <div className="absolute -bottom-2 right-4 w-4 h-4 bg-[#1a1a1a] border-r border-b border-[#d4a853]/50 rotate-45" />
+          <p className="text-[12px] text-[#f5f5f5] leading-relaxed whitespace-pre-line">{message}</p>
+          <div className="absolute -bottom-2 right-4 w-4 h-4 bg-[#1a1a1a] border-r border-b border-[#93c5fd]/50 rotate-45" />
         </motion.div>
       </AnimatePresence>
 
@@ -214,10 +214,10 @@ export default function AvatarGuide() {
           <Doll action={action} />
         </motion.div>
         <div className="flex gap-1.5">
-          {([["👋","wave"],["🚶","walk"],["⬆️","jump"]] as const).map(([label, name]) => (
+          {([["ðŸ‘‹","wave"],["ðŸš¶","walk"],["â¬†ï¸","jump"]] as const).map(([label, name]) => (
             <motion.button key={name} onClick={() => doAction(name)}
               whileHover={{ scale:1.2 }} whileTap={{ scale:0.85 }}
-              className="w-7 h-7 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#d4a853]/60 text-xs flex items-center justify-center"
+              className="w-7 h-7 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] hover:border-[#93c5fd]/60 text-xs flex items-center justify-center"
             >{label}</motion.button>
           ))}
         </div>

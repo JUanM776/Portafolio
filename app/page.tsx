@@ -1,6 +1,7 @@
 // app/page.tsx — Root page: composes all portfolio sections
 import Navbar from "@/components/Navbar";
 import AboutMe from "@/components/AboutMe";
+import Stats from "@/components/Stats";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
@@ -21,6 +22,7 @@ export default function Home() {
     >
       <Navbar />
       <AboutMe />
+      <Stats />
       <Skills />
       <Projects />
       <Testimonials />

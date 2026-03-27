@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="relative">
-        <div className="fixed inset-0 bg-black/60 -z-10" />
+        <div className="fixed inset-0 bg-black/75 -z-10" />
         {children}
         <AvatarGuide />
       </body>
