@@ -1,24 +1,23 @@
-﻿/* app/globals.css â€” CSS custom properties, resets, and base animation styles */
+﻿/* app/globals.css */
 @import "tailwindcss";
 
 :root {
   --font-display: "Inter", sans-serif;
-  --font-body: "Inter", sans-serif;
-
-  /* Brand palette */
+  --font-body:    "Inter", sans-serif;
   --ink:        #0a0a0a;
   --parchment:  #f5f5f5;
   --warm-mid:   #a8b2c1;
-  --accent:     #93c5fd;   /* emerald mint */
+  --accent:     #93c5fd;
   --accent-dim: #60a5fa;
   --surface:    #141414;
   --border:     #2a2a2a;
 }
 
-/* â”€â”€ Smooth scrolling â”€â”€ */
 html { scroll-behavior: smooth; }
 
-/* â”€â”€ Base typography â”€â”€ */
+/* Hide native cursor */
+* { cursor: none !important; }
+
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -35,28 +34,34 @@ h1, h2, h3, h4 {
 }
 
 p, span, a {
-  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
 }
 
-/* â”€â”€ Scroll-reveal animation â”€â”€ */
+/* Page fade-in */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadein {
+  animation: fadein 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Scroll-reveal */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .reveal {
   opacity: 0;
   animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-
-/* Stagger helpers */
 .delay-100 { animation-delay: 0.10s; }
 .delay-200 { animation-delay: 0.20s; }
 .delay-300 { animation-delay: 0.30s; }
 .delay-400 { animation-delay: 0.40s; }
 .delay-500 { animation-delay: 0.55s; }
 
-/* â”€â”€ Noise texture overlay on hero â”€â”€ */
+/* Noise texture */
 .noise::after {
   content: "";
   position: absolute;
@@ -66,7 +71,7 @@ p, span, a {
   z-index: 1;
 }
 
-/* â”€â”€ Accent underline for section labels â”€â”€ */
+/* Label tag */
 .label-tag {
   display: inline-flex;
   align-items: center;
@@ -77,7 +82,6 @@ p, span, a {
   text-transform: uppercase;
   color: var(--accent);
 }
-
 .label-tag::before {
   content: "";
   display: block;
@@ -86,27 +90,23 @@ p, span, a {
   background: var(--accent);
 }
 
-/* â”€â”€ Horizontal rule â”€â”€ */
+/* Section rule */
 hr.section-rule {
   border: none;
   border-top: 1px solid var(--border);
 }
 
-/* â”€â”€ Card hover lift â”€â”€ */
+/* Card lift */
 .card-lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
 }
 .card-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 24px 48px rgba(0,0,0,0.5);
 }
 
-/* â”€â”€ CV button glow â”€â”€ */
-.btn-cv {
-  position: relative;
-  overflow: hidden;
-}
+/* CV button */
+.btn-cv { position: relative; overflow: hidden; }
 .btn-cv::before {
   content: "";
   position: absolute;
@@ -118,7 +118,7 @@ hr.section-rule {
 .btn-cv:hover::before { opacity: 1; }
 .btn-cv span { position: relative; z-index: 1; }
 
-/* â”€â”€ Avatar guide animations â”€â”€ */
+/* Avatar animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
@@ -137,43 +137,20 @@ hr.section-rule {
   25%       { transform: rotate(-6deg); }
   75%       { transform: rotate(6deg); }
 }
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-  position: relative;
-}
-.animate-bubble {
-  animation: bubble 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.animate-pop {
-  animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-.animate-wiggle {
-  animation: wiggle 0.5s ease-in-out;
-}
+.animate-float  { animation: float 3s ease-in-out infinite; position: relative; }
+.animate-bubble { animation: bubble 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-pop    { animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.animate-wiggle { animation: wiggle 0.5s ease-in-out; }
 
-/* â”€â”€ Skills marquee â”€â”€ */
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee-reverse {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-.animate-marquee-reverse {
-  animation: marquee-reverse 28s linear infinite;
-}
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
-}
+/* Skills marquee */
+@keyframes marquee         { 0% { transform: translateX(0); }    100% { transform: translateX(-50%); } }
+@keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+.animate-marquee         { animation: marquee 28s linear infinite; }
+.animate-marquee:hover   { animation-play-state: paused; }
+.animate-marquee-reverse { animation: marquee-reverse 28s linear infinite; }
+.animate-marquee-reverse:hover { animation-play-state: paused; }
 
-/* â”€â”€ Mobile menu transition â”€â”€ */
+/* Mobile menu */
 .mobile-menu {
   transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
   overflow: hidden;

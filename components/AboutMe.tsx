@@ -117,7 +117,6 @@ export default function AboutMe() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center min-h-screen">
         <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative">
-          <div className="absolute -inset-6 rounded-2xl bg-black/55 backdrop-blur-md -z-10" />
           <p className="label-tag reveal mb-6">Hello, world</p>
           <h1 className="reveal delay-100 font-display text-5xl sm:text-7xl lg:text-8xl text-[#f5f5f5] mb-6 leading-none tracking-tight">
             Juan Manuel<br />

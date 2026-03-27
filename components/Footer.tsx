@@ -97,10 +97,10 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#2a2a2a] max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-[#555] text-[11px] tracking-wide">
+        <p className="text-[#888] text-[11px] tracking-wide">
           © {new Date().getFullYear()} Juan Manuel Cordoba Florez. Todos los derechos reservados.
         </p>
-        <p className="text-[#555] text-[11px] tracking-wide">
+        <p className="text-[#888] text-[11px] tracking-wide">
           Hecho con <span className="text-[#93c5fd]">♥</span> en Pasto, Colombia
         </p>
       </div>

@@ -106,7 +106,7 @@ export default function Experience() {
               className={`px-6 py-2.5 rounded-full text-[11px] font-semibold tracking-widest uppercase transition-all duration-300 ${
                 activeTab === tab
                   ? "bg-[#93c5fd] text-[#0a0a0a] shadow-lg shadow-[#93c5fd]/25"
-                  : "border border-[#2a2a2a] text-[#666] hover:border-[#93c5fd]/40 hover:text-[#a8b2c1]"
+                  : "border border-[#2a2a2a] text-[#a8b2c1] bg-[#141414]/80 hover:border-[#93c5fd]/40 hover:text-[#f5f5f5]"
               }`}
             >
               {tab === "work" ? "Laboral" : "Académico"}

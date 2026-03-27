@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AvatarGuide from "@/components/AvatarGuide";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,8 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="relative">
-        <div className="fixed inset-0 bg-black/75 -z-10" />
+      <body className="relative cursor-none">
+        <div className="fixed inset-0 bg-black/60 -z-10" />
+        <CustomCursor />
         {children}
         <AvatarGuide />
       </body>
