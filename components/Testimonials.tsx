@@ -41,30 +41,52 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
       <hr className="section-rule mb-16" />
-      <header className="mb-14">
-        <p className="label-tag mb-3">Kind words</p>
-        <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">Testimonials</h2>
+
+      {/* Header — flex row */}
+      <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+        <div className="flex flex-col gap-3">
+          <p className="label-tag">Kind words</p>
+          <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">Testimonials</h2>
+        </div>
       </header>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none">
+
+      {/* Grid de tarjetas — grid responsive */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {TESTIMONIALS.map((t) => (
-          <li key={t.id} className="card-lift bg-[#141414] border border-[#2a2a2a] rounded-sm p-8 flex flex-col">
-            <div className="w-8 h-px mb-6" style={{ background: t.color }} />
-            <QuoteMark color={t.color} />
-            <blockquote className="text-[#a8b2c1] text-sm leading-loose mb-8 flex-1 italic">
-              "{t.quote}"
-            </blockquote>
-            <footer className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium text-[#0a0a0a] shrink-0" style={{ background: t.color }} aria-hidden>
-                {t.initial}
-              </div>
-              <div>
-                <p className="text-[#f5f5f5] text-sm font-medium">{t.author}</p>
-                <p className="text-[#555] text-[11px] tracking-wide">{t.role} · {t.company}</p>
-              </div>
-            </footer>
-          </li>
+          <div
+            key={t.id}
+            className="card-lift flex flex-col bg-[#141414]/80 backdrop-blur-sm border border-[#2a2a2a] rounded-2xl overflow-hidden"
+          >
+            {/* Accent top */}
+            <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${t.color}, transparent)` }} />
+
+            {/* Contenido — flex column */}
+            <div className="flex flex-col flex-1 p-8">
+              <QuoteMark color={t.color} />
+
+              {/* Quote — flex-1 empuja el footer abajo */}
+              <blockquote className="text-[#a8b2c1] text-sm leading-loose mb-8 flex-1 italic">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+
+              {/* Author — flex row */}
+              <footer className="flex items-center gap-4 pt-4 border-t border-[#2a2a2a]">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-[#0a0a0a] shrink-0"
+                  style={{ background: t.color }}
+                  aria-hidden
+                >
+                  {t.initial}
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-[#f5f5f5] text-sm font-semibold">{t.author}</p>
+                  <p className="text-[#555] text-[11px] tracking-wide">{t.role} · {t.company}</p>
+                </div>
+              </footer>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

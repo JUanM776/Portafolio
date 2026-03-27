@@ -26,7 +26,7 @@ function SectionDivider({ label }: { label: string }) {
 export default function Home() {
   return (
     <main
-      className="text-[#e8e4dc] font-body overflow-x-hidden"
+      className="flex flex-col min-h-screen text-[#e8e4dc] font-body overflow-x-hidden"
       style={{
         backgroundImage: "url('/bg.jpg')",
         backgroundSize: "cover",
