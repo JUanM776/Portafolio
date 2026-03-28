@@ -400,3 +400,10 @@ html, html * {
 .card-lift:hover img {
   transform: scale(1.03);
 }
+
+/* Parallax sutil en secciones */
+@supports (scroll-timeline: --page) {
+  .noise {
+    view-timeline: --section;
+  }
+}
