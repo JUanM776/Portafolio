@@ -346,3 +346,25 @@ html, html * {
 .animate-blob-2 { animation: blob2 22s ease-in-out infinite; }
 .animate-blob-3 { animation: blob3 20s ease-in-out infinite; }
 .animate-blob-4 { animation: blob4 24s ease-in-out infinite; }
+
+/* Focus visible para accesibilidad con teclado */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Performance hints */
+.card-lift { will-change: transform; }
+.animate-marquee, .animate-marquee-reverse { will-change: transform; }
+.reveal { will-change: opacity, transform; }
