@@ -86,8 +86,12 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
       onMouseLeave={() => setHovered(false)}
     >
       <div
-        className="flex h-full transition-transform duration-700 ease-in-out"
-        style={{ width: `${images.length * 100}%`, transform: `translateX(-${current * (100 / images.length)}%)` }}
+        className="flex h-full"
+        style={{
+          width: `${images.length * 100}%`,
+          transform: `translateX(-${current * (100 / images.length)}%)`,
+          transition: "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)",
+        }}
       >
         {images.map((img, i) => (
           <div key={i} className="h-full shrink-0" style={{ width: `${100 / images.length}%` }}>
