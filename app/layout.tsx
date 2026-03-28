@@ -13,8 +13,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Juan Manuel Cordoba — Portfolio",
-  description: "Estudiante de Ingeniería de Software apasionado por el frontend.",
+  title: "Juan Manuel Cordoba Florez — Portafolio",
+  description: "Portafolio de Juan Manuel Cordoba Florez, estudiante de Ingenieria de Software en la Universidad Cooperativa de Colombia, campus Pasto. Desarrollo frontend y backend.",
+  keywords: ["portafolio", "desarrollador", "frontend", "software", "Pasto", "Colombia"],
+  authors: [{ name: "Juan Manuel Cordoba Florez" }],
+  openGraph: {
+    title: "Juan Manuel Cordoba Florez — Portafolio",
+    description: "Estudiante de Ingenieria de Software apasionado por el desarrollo web.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="es" className={`${inter.variable} dark`}>
       <body className="relative cursor-none">
         <div className="fixed inset-0 -z-10" style={{ background: "var(--overlay)" }} />
         <LightBackground />
