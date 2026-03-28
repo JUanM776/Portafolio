@@ -392,3 +392,11 @@ html, html * {
   background: var(--accent);
   color: var(--ink);
 }
+
+/* Hover suave en imagenes del carrusel */
+.card-lift img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-lift:hover img {
+  transform: scale(1.03);
+}
