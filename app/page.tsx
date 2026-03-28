@@ -11,14 +11,14 @@ import Footer from "@/components/Footer";
 function SectionDivider({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-4 px-6 md:px-10 max-w-7xl mx-auto py-8">
-      <div className="flex-1 h-px bg-linear-to-r from-transparent via-[#93c5fd]/30 to-transparent" />
-      <div className="flex items-center gap-3 px-4 py-1.5 rounded-full border border-[#93c5fd]/20 bg-[#0a0a0a]/60 backdrop-blur-sm">
-        <div className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]/60" />
-        <span className="text-[9px] font-semibold tracking-[0.25em] uppercase text-[#93c5fd]/70">
+      <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--accent-30, rgba(147,197,253,0.3)), transparent)" }} />
+      <div className="flex items-center gap-3 px-4 py-1.5 rounded-full border" style={{ borderColor: "var(--border)", background: "var(--card)" }}>
+        <div className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--accent)" }} />
+        <span className="text-[9px] font-semibold tracking-[0.25em] uppercase" style={{ color: "var(--accent)" }}>
           {label}
         </span>
       </div>
-      <div className="flex-1 h-px bg-linear-to-r from-transparent via-[#93c5fd]/30 to-transparent" />
+      <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--accent-30, rgba(147,197,253,0.3)), transparent)" }} />
     </div>
   );
 }
@@ -26,31 +26,32 @@ function SectionDivider({ label }: { label: string }) {
 export default function Home() {
   return (
     <main
-      className="flex flex-col min-h-screen text-[#e8e4dc] font-body overflow-x-hidden"
+      className="flex flex-col min-h-screen font-body overflow-x-hidden"
       style={{
         backgroundImage: "url('/bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
+        color: "var(--text)",
       }}
     >
       <Navbar />
       <AboutMe />
 
-      <SectionDivider label="Stats" />
+      <SectionDivider label="Estadisticas" />
       <Stats />
 
-      <SectionDivider label="Skills" />
+      <SectionDivider label="Habilidades" />
       <Skills />
 
-      <SectionDivider label="Projects" />
+      <SectionDivider label="Proyectos" />
       <Projects />
 
-      <SectionDivider label="Testimonials" />
+      <SectionDivider label="Testimonios" />
       <Testimonials />
 
-      <SectionDivider label="Experience" />
+      <SectionDivider label="Experiencia" />
       <Experience />
 
       <Footer />

@@ -14,7 +14,7 @@ const SKILLS = [
   { name: "MongoDB",    icon: "/icons/mongodb-icon-dark.svg",   color: "#47a248" },
   { name: "Angular",    icon: "/icons/angular.svg",             color: "#dd0031" },
   { name: "Java",       icon: "/icons/java.svg",                color: "#f89820" },
-  { name: "MySQL",      icon: "/icons/mysql-wordmark-dark.svg", color: "#00758f" },
+  { name: "MySQL",      icon: "/icons/mysql-wordmark-dark.svg", color: "#00758f", darkIcon: true },
   { name: "Git",        icon: "/icons/git.svg",                 color: "#f05032" },
   { name: "Figma",      icon: "/icons/figma.svg",               color: "#a259ff" },
 ];
@@ -43,8 +43,8 @@ function useScramble(text: string, trigger: boolean) {
   return display;
 }
 
-function SkillCard({ name, icon, color, index }: {
-  name: string; icon: string; color: string; index: number;
+function SkillCard({ name, icon, color, index, darkIcon }: {
+  name: string; icon: string; color: string; index: number; darkIcon?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
@@ -59,7 +59,7 @@ function SkillCard({ name, icon, color, index }: {
       transition={{ delay: index * 0.04, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-[#2a2a2a] bg-[#0d0d0d]/80 backdrop-blur-sm cursor-default overflow-hidden transition-colors duration-300 hover:border-[#93c5fd]/40"
+      className="group relative flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-[var(--border)] bg-[var(--card)] backdrop-blur-sm cursor-default overflow-hidden transition-colors duration-300 hover:border-[var(--accent)]/40"
       style={{ boxShadow: hovered ? `0 0 24px ${color}20, inset 0 0 20px ${color}08` : "none" }}
     >
       {/* Glow de fondo */}
@@ -78,19 +78,19 @@ function SkillCard({ name, icon, color, index }: {
           filter: hovered ? `drop-shadow(0 0 8px ${color}90)` : "none",
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="w-10 h-10 object-contain relative z-10"
+        className={`w-10 h-10 object-contain relative z-10 ${darkIcon ? "dark-icon" : ""}`}
       />
 
       {/* Nombre con scramble */}
       <span
         className="text-[9px] font-bold tracking-widest relative z-10 transition-colors duration-200 whitespace-nowrap"
-        style={{ color: hovered ? color : "#a8b2c1", fontFamily: "monospace" }}
+        style={{ color: hovered ? color : "var(--text-secondary)", fontFamily: "monospace" }}
       >
         {scrambled}
       </span>
 
       {/* Barra animada */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#1e1e1e] overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--border)] overflow-hidden">
         <motion.div
           initial={{ width: "0%" }}
           animate={inView ? { width: "100%" } : {}}
@@ -124,18 +124,18 @@ export default function Skills() {
       {/* Header centrado */}
       <div className="flex flex-col items-center text-center mb-14">
         <p className="label-tag reveal mb-4">Lo que uso</p>
-        <h2 className="reveal delay-100 font-display text-4xl sm:text-6xl text-[#f5f5f5] leading-none mb-4">
+        <h2 className="reveal delay-100 font-display text-4xl sm:text-6xl leading-none mb-4" style={{ color: "var(--text)" }}>
           Skills
         </h2>
-        <p className="reveal delay-200 text-white/90 text-sm max-w-md leading-relaxed bg-black/40 rounded-lg px-4 py-2 backdrop-blur-sm">
+        <p className="reveal delay-200 text-sm max-w-md leading-relaxed rounded-lg px-4 py-2 backdrop-blur-sm" style={{ color: "var(--text-secondary)", background: "var(--card)" }}>
           Estas son las tecnologias con las que trabajo dia a dia, siempre aprendiendo algo nuevo.
         </p>
       </div>
 
       {/* Grid responsive */}
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3">
-        {SKILLS.map(({ name, icon, color }, i) => (
-          <SkillCard key={name} name={name} icon={icon} color={color} index={i} />
+        {SKILLS.map(({ name, icon, color, darkIcon }, i) => (
+          <SkillCard key={name} name={name} icon={icon} color={color} index={i} darkIcon={darkIcon} />
         ))}
       </div>
 

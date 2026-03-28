@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -94,8 +94,8 @@ export default function Experience() {
       {/* Header */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
         <div>
-          <p className="label-tag mb-3">Background</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">Experience</h2>
+          <p className="label-tag mb-3">Trayectoria</p>
+          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">Experiencia</h2>
         </div>
         {/* Tab pills */}
         <div className="flex self-start sm:self-end gap-2">
@@ -105,8 +105,8 @@ export default function Experience() {
               onClick={() => { setActiveTab(tab); setActive(0); }}
               className={`px-6 py-2.5 rounded-full text-[11px] font-semibold tracking-widest uppercase transition-all duration-300 ${
                 activeTab === tab
-                  ? "bg-[#93c5fd] text-[#0a0a0a] shadow-lg shadow-[#93c5fd]/25"
-                  : "border border-[#2a2a2a] text-[#a8b2c1] bg-[#141414]/80 hover:border-[#93c5fd]/40 hover:text-[#f5f5f5]"
+                  ? "bg-[var(--accent)] text-[var(--ink)] shadow-lg shadow-[var(--accent)]/25"
+                  : "border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--surface)]/80 hover:border-[var(--accent)]/40 hover:text-[var(--text)]"
               }`}
             >
               {tab === "work" ? "Laboral" : "Académico"}
@@ -135,33 +135,34 @@ export default function Experience() {
                 transition={{ delay: idx * 0.08, duration: 0.4 }}
                 className={`group w-full text-left rounded-xl border p-5 transition-all duration-300 ${
                   active === idx
-                    ? "bg-[#0d1520] border-[#93c5fd]/60 shadow-lg shadow-[#93c5fd]/10"
-                    : "bg-[#141414]/80 border-[#2a2a2a] hover:border-[#93c5fd]/30 hover:bg-[#141414]"
+                    ? "bg-[var(--surface)] border-[var(--accent)]/60 shadow-lg shadow-[var(--accent)]/10"
+                    : "bg-[var(--surface)]/80 border-[var(--border)] hover:border-[var(--accent)]/30 hover:bg-[var(--surface)]"
                 }`}
               >
                 <div className="flex items-center gap-4">
                   {/* Número */}
                   <span
-                    className={`text-2xl font-black tabular-nums shrink-0 transition-colors duration-300 ${active === idx ? "text-[#93c5fd]" : "text-[#2a2a2a] group-hover:text-[#3a3a3a]"}`}
+                    className={`text-2xl font-black tabular-nums shrink-0 transition-colors duration-300 ${active === idx ? "text-[var(--accent)]" : ""}`}
+                    style={{ color: active === idx ? undefined : "var(--border)" }}
                   >
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className={`font-semibold text-sm truncate transition-colors duration-200 ${active === idx ? "text-[#f5f5f5]" : "text-[#8a8680] group-hover:text-[#c4c4c4]"}`}>
+                    <p className={`font-semibold text-sm truncate transition-colors duration-200 ${active === idx ? "text-[var(--text)]" : ""}`} style={{ color: active === idx ? undefined : "var(--text-secondary)" }}>
                       {item.role}
                     </p>
-                    <p className={`text-xs mt-0.5 transition-colors duration-200 ${active === idx ? "text-[#93c5fd]" : "text-[#555]"}`}>
+                    <p className={`text-xs mt-0.5 transition-colors duration-200 ${active === idx ? "text-[var(--accent)]" : "text-[var(--text-muted)]"}`}>
                       {item.company}
                     </p>
                   </div>
-                  <span className="text-[10px] text-[#444] shrink-0">{item.period.split("—")[0].trim()}</span>
+                  <span className="text-[10px] text-[var(--text-muted)] shrink-0">{item.period.split("—")[0].trim()}</span>
                 </div>
                 {/* Barra de progreso activa */}
-                <div className="mt-3 h-px w-full bg-[#1e1e1e] overflow-hidden rounded-full">
+                <div className="mt-3 h-px w-full bg-[var(--border)] overflow-hidden rounded-full">
                   <motion.div
                     animate={{ width: active === idx ? "100%" : "0%" }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="h-full bg-[#93c5fd] rounded-full"
+                    className="h-full bg-[var(--accent)] rounded-full"
                   />
                 </div>
               </motion.button>
@@ -176,20 +177,20 @@ export default function Experience() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-7 bg-[#0d0d0d]/90 backdrop-blur-md border border-[#2a2a2a] rounded-2xl p-8 flex flex-col"
+              className="lg:col-span-7 bg-[#0d0d0d]/90 backdrop-blur-md border border-[var(--border)] rounded-2xl p-8 flex flex-col"
             >
               {/* Top accent */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-[#93c5fd]/10 border border-[#93c5fd]/30 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-[#93c5fd]" />
+                <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/30 flex items-center justify-center">
+                  <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
                 </div>
-                <div className="flex-1 h-px bg-linear-to-r from-[#93c5fd]/40 to-transparent" />
-                <span className="text-[10px] text-[#555] tracking-widest uppercase">{selected.period}</span>
+                <div className="flex-1 h-px bg-linear-to-r from-[var(--accent)]/40 to-transparent" />
+                <span className="text-[10px] text-[var(--text-muted)] tracking-widest uppercase">{selected.period}</span>
               </div>
 
-              <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-1">{selected.role}</h3>
-              <p className="text-[#93c5fd] text-sm font-semibold mb-1">{selected.company}</p>
-              <p className="text-[#444] text-xs tracking-wide mb-8">{selected.location}</p>
+              <h3 className="font-display text-2xl md:text-3xl text-[var(--text)] mb-1">{selected.role}</h3>
+              <p className="text-[var(--accent)] text-sm font-semibold mb-1">{selected.company}</p>
+              <p className="text-[var(--text-muted)] text-xs tracking-wide mb-8">{selected.location}</p>
 
               <div className="flex flex-col gap-4 flex-1">
                 {selected.achievements.map((ach, i) => (
@@ -198,12 +199,12 @@ export default function Experience() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08, duration: 0.35 }}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-[#141414]/60 border border-[#1e1e1e]"
+                    className="flex items-start gap-3 p-3 rounded-xl bg-[var(--surface)]/60 border border-[var(--border)]"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#93c5fd]/10 border border-[#93c5fd]/30 flex items-center justify-center shrink-0 mt-0.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#93c5fd]" />
+                    <div className="w-5 h-5 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                     </div>
-                    <span className="text-[#a8b2c1] text-sm leading-relaxed">{ach}</span>
+                    <span className="text-[var(--text-secondary)] text-sm leading-relaxed">{ach}</span>
                   </motion.div>
                 ))}
               </div>

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AvatarGuide from "@/components/AvatarGuide";
 import CustomCursor from "@/components/CustomCursor";
+import LightBackground from "@/components/LightBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,9 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} dark`}>
       <body className="relative cursor-none">
-        <div className="fixed inset-0 bg-black/60 -z-10" />
+        <div className="fixed inset-0 -z-10" style={{ background: "var(--overlay)" }} />
+        <LightBackground />
         <CustomCursor />
         {children}
         <AvatarGuide />

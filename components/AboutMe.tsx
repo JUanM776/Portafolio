@@ -103,7 +103,7 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
       {images.length > 1 && (
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
           {images.map((_, i) => (
-            <span key={i} className={`block w-1.5 h-1.5 rounded-full transition-colors duration-300 ${i === current ? "bg-[#93c5fd]" : "bg-white/40"}`} />
+            <span key={i} className={`block w-1.5 h-1.5 rounded-full transition-colors duration-300 ${i === current ? "bg-[var(--accent)]" : "bg-white/40"}`} />
           ))}
         </div>
       )}
@@ -117,22 +117,18 @@ export default function AboutMe() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center min-h-screen">
         <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative">
-          <p className="label-tag reveal mb-6">Hello, world</p>
-          <h1 className="reveal delay-100 font-display text-5xl sm:text-7xl lg:text-8xl text-[#f5f5f5] mb-6 leading-none tracking-tight">
+          <h1 className="reveal delay-100 font-display text-5xl sm:text-7xl lg:text-8xl text-[var(--text)] mb-6 leading-none tracking-tight">
             Juan Manuel<br />
-            <span className="text-[#93c5fd]">Cordoba Florez</span>
+            <span className="text-[var(--accent)]">Cordoba Florez</span>
           </h1>
-          <p className="reveal delay-200 text-white/90 text-sm md:text-base max-w-lg mb-8 leading-relaxed">
+          <p className="reveal delay-200 text-sm md:text-base max-w-lg mb-8 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia, campus Pasto.
             Principalmente atraído por el desarrollo frontend, donde combino lógica y diseño para construir
             interfaces que realmente se sienten bien.
           </p>
           <div className="reveal delay-400 flex flex-wrap items-center gap-4">
-            <a href="#projects" className="bg-[#93c5fd] text-[#0a0a0a] text-xs font-medium tracking-widest uppercase px-7 py-3 rounded-sm hover:bg-[#60a5fa] transition-colors">
+            <a href="#projects" className="bg-[var(--accent)] text-[var(--ink)] text-xs font-medium tracking-widest uppercase px-7 py-3 rounded-sm hover:bg-[var(--accent-dim)] transition-colors">
               Ver mi trabajo
-            </a>
-            <a href="mailto:juanmanuel@example.com" className="text-xs font-medium tracking-widest uppercase text-[#a8b2c1] hover:text-[#93c5fd] transition-colors underline underline-offset-4">
-              Contáctame
             </a>
           </div>
         </div>
@@ -142,35 +138,30 @@ export default function AboutMe() {
             <div className="absolute -inset-3 border border-[#93c5fd]/20 rounded-sm" />
             <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#93c5fd]" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#93c5fd]" />
-            <div className="w-full h-full bg-[#141414] rounded-sm overflow-hidden relative">
+            <div className="w-full h-full bg-[var(--surface)] rounded-sm overflow-hidden relative">
               <div className="absolute inset-0 bg-linear-to-br from-[#1e1a14] via-[#141414] to-[#0a0a0a] flex items-center justify-center">
-                <span className="font-display text-7xl text-[#93c5fd]/20">JMC</span>
+                <span className="font-display text-7xl text-[var(--accent)]/20">JMC</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="reveal delay-500 flex flex-col items-center gap-2 py-8">
-        <span className="label-tag text-[9px]" aria-hidden>Scroll</span>
-        <div className="w-px h-12 bg-linear-to-b from-[#93c5fd] to-transparent" />
-      </div>
 
       <div className="py-16">
-        <p className="label-tag reveal mb-4">Fuera del código</p>
-        <h2 className="reveal delay-100 font-display text-4xl sm:text-5xl text-[#f5f5f5] mb-12 leading-none">
+        <h2 className="reveal delay-100 font-display text-4xl sm:text-5xl text-[var(--text)] mb-12 leading-none">
           Un poco sobre mí
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INTERESTS.map(({ emoji, title, description, images }, i) => (
-            <div key={title} className="reveal card-lift border border-[#2a2a2a] bg-[#141414]/60 backdrop-blur-sm rounded-sm overflow-hidden" style={{ animationDelay: `${(i + 1) * 0.1}s` }}>
+            <div key={title} className="reveal card-lift border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-sm overflow-hidden" style={{ animationDelay: `${(i + 1) * 0.1}s` }}>
               <ImageCarousel images={images as ImageItem[]} emoji={emoji} title={title} />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xl">{emoji}</span>
-                  <h3 className="font-display text-xl text-[#f5f5f5]">{title}</h3>
+                  <h3 className="font-display text-xl text-[var(--text)]">{title}</h3>
                 </div>
-                <p className="text-[#a8b2c1] text-sm leading-relaxed">{description}</p>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{description}</p>
               </div>
             </div>
           ))}
@@ -179,7 +170,7 @@ export default function AboutMe() {
         {/* ── Spotify playlist ── */}
         <div className="reveal mt-10">
           <p className="label-tag mb-4">Lo que escucho</p>
-          <div className="rounded-2xl overflow-hidden border border-[#2a2a2a]">
+          <div className="rounded-2xl overflow-hidden border border-[var(--border)]">
             <iframe
               src="https://open.spotify.com/embed/playlist/3DdYGbufj2gCAkwtaa4HQX?utm_source=generator&theme=0"
               width="100%"

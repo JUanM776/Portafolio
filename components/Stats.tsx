@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
 
@@ -62,7 +62,7 @@ export default function Stats() {
         {STATS.map(({ value, suffix, label, description }, i) => (
           <div
             key={label}
-            className="relative border border-[#2a2a2a] bg-[#141414]/90 backdrop-blur-md rounded-2xl p-6 flex flex-col gap-2 overflow-hidden group hover:border-[#93c5fd]/40 transition-colors duration-300"
+            className="relative border border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur-md rounded-2xl p-6 flex flex-col gap-2 overflow-hidden group hover:border-[#93c5fd]/40 transition-colors duration-300"
           >
             {/* Número grande de fondo */}
             <div
@@ -74,18 +74,18 @@ export default function Stats() {
 
             {/* Número animado */}
             <div
-              className="text-4xl sm:text-5xl font-black text-[#93c5fd] leading-none"
+              className="text-4xl sm:text-5xl font-black text-[var(--accent)] leading-none"
               style={{ fontVariantNumeric: "tabular-nums" }}
             >
               <CountUp target={value} suffix={suffix} inView={inView} />
             </div>
 
-            <p className="text-[#f5f5f5] text-sm font-semibold leading-tight">{label}</p>
-            <p className="text-[#a8b2c1] text-[11px] leading-relaxed">{description}</p>
+            <p className="text-[var(--text)] text-sm font-semibold leading-tight">{label}</p>
+            <p className="text-[var(--text-secondary)] text-[11px] leading-relaxed">{description}</p>
 
             {/* Línea inferior animada */}
             <div
-              className="absolute bottom-0 left-0 h-0.5 bg-[#93c5fd] transition-all duration-700"
+              className="absolute bottom-0 left-0 h-0.5 bg-[var(--accent)] transition-all duration-700"
               style={{ width: inView ? "100%" : "0%", transitionDelay: `${i * 150}ms` }}
             />
           </div>

@@ -1,15 +1,16 @@
-﻿"use client";
+"use client";
 // components/Navbar.tsx
 // Sticky top nav with smooth-scroll links, responsive hamburger, and CV button.
 // Layout: flex row (justify-between) for logo â†” actions; no extra wrappers.
 
 import { useState, useEffect } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Experience", href: "#experience" },
+  { label: "Acerca", href: "#about" },
+  { label: "Proyectos", href: "#projects" },
+  { label: "Testimonios", href: "#testimonials" },
+  { label: "Experiencia", href: "#experience" },
 ];
 
 export default function Navbar() {
@@ -28,9 +29,13 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#2a2a2a]"
-          : "bg-black/40 backdrop-blur-sm"
+          ? "backdrop-blur-md border-b"
+          : "backdrop-blur-sm"
       }`}
+      style={{
+        background: scrolled ? "var(--nav-bg)" : "var(--overlay)",
+        borderColor: "var(--border)",
+      }}
     >
       {/* flex row: logo on left, desktop nav + CV in center-right */}
       <nav
@@ -42,7 +47,7 @@ export default function Navbar() {
           <img
             src="/logos/Logo_profesional.svg"
             alt="Logo"
-            className="h-20 w-auto brightness-0 invert"
+            className="h-20 w-auto logo-filter"
           />
         </a>
 
@@ -53,7 +58,10 @@ export default function Navbar() {
             <li key={href}>
               <a
                 href={href}
-                className="text-xs font-medium tracking-widest uppercase text-white/80 hover:text-[#93c5fd] transition-colors duration-200"
+                className="text-xs font-medium tracking-widest uppercase transition-colors duration-200"
+                style={{ color: "var(--text-secondary)" }}
+                onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-secondary)"}
               >
                 {label}
               </a>
@@ -62,14 +70,15 @@ export default function Navbar() {
         </ul>
 
         {/* â”€â”€ CV button + hamburger (flex row) â”€â”€ */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           {/* CV button â€” opens PDF in a new tab
               Place your CV at /public/cv.pdf to make this work */}
           <a
             href="/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-cv border border-[#93c5fd] text-[#93c5fd] text-xs font-medium tracking-widest uppercase px-5 py-2 rounded-sm hover:text-[#0a0a0a] transition-colors duration-300"
+            className="btn-cv border border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-medium tracking-widest uppercase px-5 py-2 rounded-sm hover:bg-[var(--accent)] hover:text-[var(--ink)] transition-colors duration-300"
           >
             <span>CV</span>
           </a>
@@ -83,17 +92,17 @@ export default function Navbar() {
           >
             {/* Three lines animate to X via rotation */}
             <span
-              className={`block h-px w-6 bg-[#e8e4dc] transition-transform duration-300 ${
+              className={`block h-px w-6 bg-[var(--text)] transition-transform duration-300 ${
                 open ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block h-px w-6 bg-[#e8e4dc] transition-opacity duration-300 ${
+              className={`block h-px w-6 bg-[var(--text)] transition-opacity duration-300 ${
                 open ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block h-px w-6 bg-[#e8e4dc] transition-transform duration-300 ${
+              className={`block h-px w-6 bg-[var(--text)] transition-transform duration-300 ${
                 open ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
@@ -104,7 +113,7 @@ export default function Navbar() {
       {/* â”€â”€ Mobile drawer menu â”€â”€ */}
       {/* max-height trick enables CSS transition on height:auto */}
       <div
-        className={`mobile-menu md:hidden bg-[#0a0a0a]/95 border-b border-[#2a2a2a] ${
+        className={`mobile-menu md:hidden bg-[var(--nav-bg)] border-b border-[var(--border)] ${
           open ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -114,7 +123,7 @@ export default function Navbar() {
               <a
                 href={href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium tracking-widest uppercase text-[#a8b2c1] hover:text-[#93c5fd] transition-colors"
+                className="text-sm font-medium tracking-widest uppercase text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
               >
                 {label}
               </a>

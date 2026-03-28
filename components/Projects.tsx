@@ -1,6 +1,4 @@
 ﻿// components/Projects.tsx
-// Featured work section â€” tarjetas con hover reveal overlay.
-
 "use client";
 
 const PROJECTS = [
@@ -58,24 +56,10 @@ const PROJECTS = [
   },
 ];
 
-// Arrow icon component â€” avoids importing a library for a single glyph
 function ArrowIcon() {
   return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden
-      className="flex-shrink-0"
-    >
-      <path
-        d="M3 8h10M9 4l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="shrink-0">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -85,95 +69,59 @@ export default function Projects() {
     <section id="projects" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
       <hr className="section-rule mb-16" />
 
-      {/* Section header â€” flex row space-between */}
-      <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
-        <div>
-          <p className="label-tag mb-3">Selected work</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[#f5f5f5]">
-            Projects
-          </h2>
-        </div>
-        <a
-          href="https://github.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-xs tracking-widest uppercase text-[#a8b2c1] hover:text-[#93c5fd] transition-colors self-start sm:self-end"
-        >
-          All on GitHub <ArrowIcon />
-        </a>
+      <header className="flex flex-col gap-4 mb-12">
+        <p className="label-tag mb-3">Trabajo seleccionado</p>
+        <h2 className="font-display text-4xl md:text-6xl" style={{ color: "var(--text)" }}>
+          Proyectos
+        </h2>
       </header>
 
-      {/* â”€â”€ Project grid â”€â”€
-          grid-cols-1 â†’ sm:grid-cols-2 â†’ xl:grid-cols-3
-          Featured card spans 2 cols on sm+ (col-span-2) / 1 on mobile */}
       <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 list-none">
         {PROJECTS.map((p) => (
-        <li
+          <li
             key={p.id}
-            className={`card-lift group relative bg-[#141414] border border-[#2a2a2a] rounded-sm overflow-hidden bg-gradient-to-br ${p.gradient} ${
+            className={`card-lift group relative rounded-xl overflow-hidden border bg-linear-to-br ${p.gradient} ${
               p.featured ? "sm:col-span-2 xl:col-span-2" : ""
             }`}
+            style={{ borderColor: "var(--card-border)", background: "var(--card)" }}
           >
-            {/* Colored accent top border */}
-            <div
-              className="absolute top-0 inset-x-0 h-px"
-              style={{ background: p.accent }}
-            />
+            {/* Accent top */}
+            <div className="absolute top-0 inset-x-0 h-px" style={{ background: p.accent }} />
 
             <div className="p-7 flex flex-col h-full min-h-[240px]">
-              {/* Meta row */}
               <div className="flex items-center justify-between mb-4">
-                <span
-                  className="text-[10px] tracking-widest uppercase font-medium"
-                  style={{ color: p.accent }}
-                >
+                <span className="text-[10px] tracking-widest uppercase font-medium" style={{ color: p.accent }}>
                   {p.category}
                 </span>
-                <span className="text-[10px] text-[#555] font-medium">{p.year}</span>
+                <span className="text-[10px] font-medium" style={{ color: "var(--text-muted)" }}>{p.year}</span>
               </div>
 
-              <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-3">
+              <h3 className="font-display text-2xl md:text-3xl mb-3" style={{ color: "var(--text)" }}>
                 {p.title}
               </h3>
-              <p className="text-[#8a8680] text-sm leading-relaxed mb-6 flex-1">
+              <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "var(--text-secondary)" }}>
                 {p.description}
               </p>
 
-              {/* Tags â€” visibles siempre */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[9px] font-medium tracking-widest uppercase border border-[#333] text-[#666] px-2 py-1 rounded-sm"
-                  >
+                  <span key={t} className="text-[9px] font-medium tracking-widest uppercase border px-2 py-1 rounded-sm"
+                    style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}>
                     {t}
                   </span>
                 ))}
               </div>
-
-              {/* CTA */}
-              <a
-                href={p.link}
-                className="flex items-center gap-2 text-xs tracking-widest uppercase font-medium transition-colors self-start"
-                style={{ color: p.accent }}
-              >
-                View project <ArrowIcon />
-              </a>
             </div>
 
-            {/* â”€â”€ Hover overlay â€” sube desde abajo â”€â”€ */}
+            {/* Hover overlay */}
             <div
               className="absolute inset-0 flex flex-col justify-end p-7 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{ background: `linear-gradient(to top, ${p.accent}18 0%, #0f0f0fee 40%)` }}
             >
-              {/* Borde inferior de color */}
               <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: p.accent }} />
 
-              <span
-                className="text-[10px] tracking-widest uppercase font-medium mb-2"
-                style={{ color: p.accent }}
-              >
-                {p.category} Â· {p.year}
+              <span className="text-[10px] tracking-widest uppercase font-medium mb-2" style={{ color: p.accent }}>
+                {p.category} · {p.year}
               </span>
 
               <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f5] mb-3">
@@ -184,24 +132,17 @@ export default function Projects() {
                 {p.description}
               </p>
 
-              {/* Tags en el overlay */}
               <div className="flex flex-wrap gap-2 mb-5">
                 {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[9px] font-medium tracking-widest uppercase px-2 py-1 rounded-sm border"
-                    style={{ color: p.accent, borderColor: `${p.accent}50` }}
-                  >
+                  <span key={t} className="text-[9px] font-medium tracking-widest uppercase px-2 py-1 rounded-sm border"
+                    style={{ color: p.accent, borderColor: `${p.accent}50` }}>
                     {t}
                   </span>
                 ))}
               </div>
 
-              <a
-                href={p.link}
-                className="flex items-center gap-2 text-xs tracking-widest uppercase font-medium self-start transition-all hover:gap-4"
-                style={{ color: p.accent }}
-              >
+              <a href={p.link} className="flex items-center gap-2 text-xs tracking-widest uppercase font-medium self-start transition-all hover:gap-4"
+                style={{ color: p.accent }}>
                 Ver proyecto <ArrowIcon />
               </a>
             </div>
