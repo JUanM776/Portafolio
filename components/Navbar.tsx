@@ -46,7 +46,7 @@ export default function Navbar() {
         <a href="#about" className="flex items-center">
           <img
             src="/logos/Logo_profesional.svg"
-            alt="Logo"
+            alt="Logo de Juan Manuel Cordoba"
             className="h-12 sm:h-20 w-auto logo-filter"
           />
         </a>
