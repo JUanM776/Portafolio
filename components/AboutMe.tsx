@@ -96,6 +96,7 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
               alt={`${title} ${i + 1}`}
               className="w-full h-full object-cover transition-all duration-700"
               style={{ objectPosition: getPos(img) }}
+              loading="lazy"
             />
           </div>
         ))}
@@ -172,6 +173,7 @@ export default function AboutMe() {
           <p className="label-tag mb-4">Lo que escucho</p>
           <div className="rounded-2xl overflow-hidden border border-[var(--border)]">
             <iframe
+              title="Playlist de Spotify de Juan Manuel"
               src="https://open.spotify.com/embed/playlist/3DdYGbufj2gCAkwtaa4HQX?utm_source=generator&theme=0"
               width="100%"
               height="352"
