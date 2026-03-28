@@ -5,6 +5,7 @@ import "./globals.css";
 import AvatarGuide from "@/components/AvatarGuide";
 import CustomCursor from "@/components/CustomCursor";
 import LightBackground from "@/components/LightBackground";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         <CustomCursor />
         {children}
         <AvatarGuide />
+        <ScrollToTop />
       </body>
     </html>
   );
