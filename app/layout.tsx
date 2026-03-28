@@ -6,6 +6,7 @@ import AvatarGuide from "@/components/AvatarGuide";
 import CustomCursor from "@/components/CustomCursor";
 import LightBackground from "@/components/LightBackground";
 import ScrollToTop from "@/components/ScrollToTop";
+import SplashScreen from "@/components/SplashScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
         <div className="fixed inset-0 -z-10" style={{ background: "var(--overlay)" }} />
         <LightBackground />
         <CustomCursor />
+        <SplashScreen>
         {children}
+        </SplashScreen>
         <AvatarGuide />
         <ScrollToTop />
       </body>
