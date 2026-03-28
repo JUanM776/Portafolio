@@ -47,7 +47,7 @@ function QuoteMark({ color }: { color: string }) {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
+    <section id="testimonials" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Testimonios">
       <hr className="section-rule mb-16" />
 
       {/* Header — flex row */}

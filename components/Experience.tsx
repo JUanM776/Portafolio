@@ -75,7 +75,7 @@ export default function Experience() {
   const selected = items[active] ?? items[0];
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
+    <section id="experience" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Experiencia">
       <hr className="section-rule mb-16" />
 
       {/* Header */}
