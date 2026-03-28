@@ -21,19 +21,19 @@
 
 .light {
   --ink:        #f8fafc;
-  --parchment:  #0f172a;
-  --warm-mid:   #334155;
+  --parchment:  #000000;
+  --warm-mid:   #1e293b;
   --accent:     #1d4ed8;
   --accent-dim: #1e40af;
   --surface:    #ffffff;
   --border:     #cbd5e1;
-  --text:       #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --overlay:    rgba(248,250,252,0.5);
-  --card:       rgba(255,255,255,0.85);
+  --text:       #000000;
+  --text-secondary: #1e293b;
+  --text-muted: #374151;
+  --overlay:    rgba(255,255,255,0.75);
+  --card:       rgba(255,255,255,0.92);
   --card-border: #cbd5e1;
-  --nav-bg:     rgba(255,255,255,0.92);
+  --nav-bg:     rgba(255,255,255,0.95);
   --icon-color: currentColor;
   --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
@@ -224,6 +224,15 @@ html, html * {
 }
 
 .light .noise::after {
+  display: none;
+}
+
+.light .light-backdrop {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.dark .light-backdrop {
   display: none;
 }
 

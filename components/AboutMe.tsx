@@ -116,7 +116,8 @@ export default function AboutMe() {
     <section id="about" className="noise relative flex flex-col pt-24 pb-20 px-6 md:px-10 max-w-7xl mx-auto">
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center min-h-screen">
-        <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative">
+        <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative z-10">
+          <div className="absolute -inset-6 rounded-2xl light-backdrop" style={{ zIndex: -1 }} />
           <h1 className="reveal delay-100 font-display text-5xl sm:text-7xl lg:text-8xl text-[var(--text)] mb-6 leading-none tracking-tight">
             Juan Manuel<br />
             <span className="text-[var(--accent)]">Cordoba Florez</span>
