@@ -46,7 +46,7 @@ const CONTACT_INFO = [
 export default function Footer() {
   return (
     <footer className="mt-8 border-t border-[var(--border)]">
-      <div className="backdrop-blur-sm py-20 px-6 md:px-10 text-center" style={{ background: "var(--card)" }}>
+      <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10 text-center" style={{ background: "var(--card)" }}>
         <p className="label-tag justify-center mb-6">Hablemos</p>
         <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-[var(--text)] mb-6 max-w-3xl mx-auto leading-tight">
           ¿Trabajamos juntos?
@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-xl p-6">
             <p className="label-tag mb-5">Contacto directo</p>
