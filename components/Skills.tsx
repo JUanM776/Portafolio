@@ -71,7 +71,7 @@ function SkillCard({ name, icon, color, index, darkIcon }: {
       {/* Icono con rotacion al hover */}
       <motion.img
         src={icon}
-        alt={name}
+        alt={`Logo de ${name}`}
         animate={{
           scale: hovered ? 1.2 : 1,
           rotate: hovered ? 360 : 0,
@@ -119,7 +119,7 @@ function SkillCard({ name, icon, color, index, darkIcon }: {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
+    <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Habilidades tecnicas">
 
       {/* Header centrado */}
       <div className="flex flex-col items-center text-center mb-14">
