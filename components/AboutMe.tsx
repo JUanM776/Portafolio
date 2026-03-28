@@ -117,7 +117,7 @@ export default function AboutMe() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center min-h-screen">
         <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative z-10">
-          <h1 className="reveal delay-100 font-display text-5xl sm:text-7xl lg:text-8xl text-[var(--text)] mb-6 leading-none tracking-tight">
+          <h1 className="reveal delay-100 font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[var(--text)] mb-6 leading-none tracking-tight">
             Juan Manuel<br />
             <span className="text-[var(--accent)]">Cordoba Florez</span>
           </h1>
