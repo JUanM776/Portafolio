@@ -30,7 +30,7 @@
   --text:       #0f172a;
   --text-secondary: #1e293b;
   --text-muted: #374151;
-  --overlay:    rgba(255,255,255,0.75);
+  --overlay:    rgba(255,255,255,0.82);
   --card:       rgba(255,255,255,0.92);
   --card-border: #cbd5e1;
   --nav-bg:     rgba(255,255,255,0.95);
@@ -194,7 +194,7 @@ html, html * {
 /* Light mode overrides */
 .light body {
   color: var(--text);
-  background: #f8fafc;
+  background: #f0f4f8;
 }
 
 .light h1, .light h2, .light h3, .light h4 {
@@ -214,14 +214,37 @@ html, html * {
 }
 
 .light .section-rule {
-  border-top-color: var(--border);
+  border-top-color: rgba(255,255,255,0.4);
 }
 
+/* Glassmorphism cards */
 .light .card-lift {
-  box-shadow: var(--card-shadow);
+  background: rgba(255,255,255,0.45) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
 }
 .light .card-lift:hover {
-  box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.6) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* Glass on rounded bordered containers */
+.light [class*="rounded-2xl"][class*="border"],
+.light [class*="rounded-xl"][class*="border"] {
+  background: rgba(255,255,255,0.4) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Navbar frosted glass */
+.light header {
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4) !important;
+  border-bottom-color: rgba(255,255,255,0.3) !important;
 }
 
 .light .noise::after {
@@ -229,32 +252,35 @@ html, html * {
 }
 
 .light .light-backdrop {
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.6);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.4);
 }
 .dark .light-backdrop {
   display: none;
 }
 
-/* Fondo de secciones en modo claro */
+/* Secciones en modo claro */
 .light section {
   position: relative;
 }
 .light section::before {
   content: "";
   position: absolute;
-  inset: -20px -40px;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(12px);
+  inset: -16px -32px;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   z-index: -1;
   pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .light .btn-cv {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(8px);
 }
 
 /* Logo filter */

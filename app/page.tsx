@@ -36,6 +36,9 @@ export default function Home() {
         color: "var(--text)",
       }}
     >
+      {/* Overlay que cubre el fondo */}
+      <div className="fixed inset-0 pointer-events-none" style={{ background: "var(--overlay)", zIndex: 0 }} />
+      <div className="relative" style={{ zIndex: 1 }}>
       <Navbar />
       <AboutMe />
 
@@ -55,6 +58,7 @@ export default function Home() {
       <Experience />
 
       <Footer />
+      </div>
     </main>
   );
 }
