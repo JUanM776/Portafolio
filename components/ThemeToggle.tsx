@@ -40,7 +40,9 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label="Cambiar tema"
+      aria-label="Cambiar tema claro u oscuro"
+      role="switch"
+      aria-checked={dark}
       className="w-9 h-9 rounded-full flex items-center justify-center border transition-colors duration-300"
       style={{
         borderColor: "var(--border)",
