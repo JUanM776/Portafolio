@@ -244,9 +244,10 @@ export default function AvatarGuide() {
           <Doll action={action} />
         </motion.div>
         <div className="flex gap-1.5">
-          {([["S","wave"],["C","walk"],["^","jump"]] as const).map(([label, name]) => (
+          {([["S","wave","Saludar"],["C","walk","Caminar"],["^","jump","Saltar"]] as const).map(([label, name, ariaLabel]) => (
             <motion.button key={name} onClick={() => doAction(name)}
               whileHover={{ scale:1.2 }} whileTap={{ scale:0.85 }}
+              aria-label={ariaLabel}
               className="w-7 h-7 rounded-full text-[10px] flex items-center justify-center"
               style={{ background: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-secondary)" }}
             >{label}</motion.button>
