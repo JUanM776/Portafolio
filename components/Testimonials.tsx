@@ -28,11 +28,11 @@ const TESTIMONIALS = [
   },
    {
     id: 4,
-    quote: "I've worked with many developers over 15 years. Alex is the rare breed who communicates as well as they code — a genuine team multiplier.",
-    author: "Sofia Reyes",
-    role: "Product Director",
-    company: "Sprout Health",
-    initial: "S",
+    quote: "Manuel tiene un enfoque muy profesional a la hora de desarrollar. Es responsable, cumple con los tiempos y se adapta bien a los cambios. Su trabajo refleja dedicación y compromiso con cada detalle del proyecto.",
+    author: "Brayan Acosta",
+    role: "CEO y mecanico",
+    company: "Taller Suzuki",
+    initial: "B",
     color: "#60a5fa",
   },
 ];
