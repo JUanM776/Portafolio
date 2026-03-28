@@ -40,8 +40,10 @@
 
 html { scroll-behavior: smooth; }
 
-/* Hide native cursor */
-* { cursor: none !important; }
+/* Hide native cursor — solo en desktop */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
 
 body {
   font-family: var(--font-body);

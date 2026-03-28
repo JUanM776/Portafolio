@@ -3,11 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
+  const [isTouch, setIsTouch] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
   const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const touch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    setIsTouch(touch);
+  }, []);
 
   const springX = useSpring(cursorX, { stiffness: 500, damping: 35 });
   const springY = useSpring(cursorY, { stiffness: 500, damping: 35 });
@@ -50,6 +56,8 @@ export default function CustomCursor() {
       cancelAnimationFrame(rafRef.current);
     };
   }, [cursorX, cursorY]);
+
+  if (isTouch) return null;
 
   return (
     <>
