@@ -58,7 +58,7 @@ export default function Stats() {
 
   return (
     <section ref={ref} className="py-16 px-6 md:px-10 max-w-7xl mx-auto">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {STATS.map(({ value, suffix, label, description }, i) => (
           <div
             key={label}
