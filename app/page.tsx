@@ -26,6 +26,7 @@ function SectionDivider({ label }: { label: string }) {
 export default function Home() {
   return (
     <main
+      role="main"
       className="flex flex-col min-h-screen font-body overflow-x-hidden"
       style={{
         backgroundImage: "url('/bg.jpg')",
