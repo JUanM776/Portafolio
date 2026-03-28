@@ -206,7 +206,7 @@ export default function AvatarGuide() {
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line
   }, []);
 
   useEffect(() => { startFloat(); }, [startFloat]);
