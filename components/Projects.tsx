@@ -13,7 +13,7 @@ const PROJECTS = [
     featured: true,
     gradient: "from-[#1a1508] to-[#0f0f0f]",
     accent: "#93c5fd",
-    link: "#",
+    link: "https://fresh-cut-frontend.vercel.app/",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const PROJECTS = [
     featured: false,
     gradient: "from-[#0c1018] to-[#0f0f0f]",
     accent: "#5b8fd4",
-    link: "#",
+    link: "https://edben110.github.io/MercadoLibre-Clone/",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function Projects() {
               </div>
 
               {/* CTA — aparece al hover */}
-              <a href={p.link}
+              <a href={p.link} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs tracking-widest uppercase font-medium self-start opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                 style={{ color: p.accent }}>
                 Ver proyecto <ArrowIcon />
