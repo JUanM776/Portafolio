@@ -19,11 +19,11 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    quote: "I've worked with many developers over 15 years. Alex is the rare breed who communicates as well as they code — a genuine team multiplier.",
-    author: "Sofia Reyes",
+    quote: "Algo que destaca de Manuel es su mentalidad de aprendizaje constante. En cada proyecto se nota cómo mejora y aplica nuevas tecnologías. Además, sabe trabajar en equipo y comunicar sus ideas de forma clara, lo cual es clave en desarrollo de software.",
+    author: "Patricia Florez",
     role: "Product Director",
     company: "Sprout Health",
-    initial: "S",
+    initial: "P",
     color: "#60a5fa",
   },
    {
