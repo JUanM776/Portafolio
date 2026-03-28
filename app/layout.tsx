@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: "Portafolio de Juan Manuel Cordoba Florez, estudiante de Ingenieria de Software en la Universidad Cooperativa de Colombia, campus Pasto. Desarrollo frontend y backend.",
   keywords: ["portafolio", "desarrollador", "frontend", "software", "Pasto", "Colombia"],
   authors: [{ name: "Juan Manuel Cordoba Florez" }],
+  icons: {
+    icon: "/logos/Logo_profesional.svg",
+  },
   openGraph: {
     title: "Juan Manuel Cordoba Florez — Portafolio",
     description: "Estudiante de Ingenieria de Software apasionado por el desarrollo web.",
@@ -33,6 +36,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} dark`}>
       <body className="relative cursor-none">
+        <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:rounded-md" style={{ background: "var(--accent)", color: "var(--ink)" }}>
+          Ir al contenido principal
+        </a>
         <div className="fixed inset-0 -z-10" style={{ background: "var(--overlay)" }} />
         <LightBackground />
         <CustomCursor />
