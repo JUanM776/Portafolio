@@ -7,38 +7,26 @@ type Tab = "work" | "academic";
 const WORK = [
   {
     id: 1,
-    role: "Senior Full-Stack Engineer",
-    company: "Luminary Labs",
-    period: "2022 — Present",
-    location: "San Francisco, CA (Remote)",
+    role: "Desarrollador Frontend",
+    company: "Proyecto Freshcut",
+    period: "2025 — Presente",
+    location: "Pasto, Colombia",
     achievements: [
-      "Led a team of 6 to build the Meridian Design System adopted across 12 product teams.",
-      "Reduced API response times by 42% through PostgreSQL query optimization and Redis caching.",
-      "Architected a real-time notification infrastructure handling 1M+ events per day.",
+      "Desarrollo de una app de barberia con inteligencia artificial para recomendar cortes de cabello.",
+      "Implementacion de la interfaz con TypeScript, CSS, HTML y JavaScript.",
+      "Integracion de funcionalidades como gestion de citas, historial de clientes e ingresos.",
     ],
   },
   {
     id: 2,
-    role: "Full-Stack Developer",
-    company: "Flux Systems",
-    period: "2020 — 2022",
-    location: "Austin, TX",
+    role: "Desarrollador Full-Stack",
+    company: "Clon de Mercado Libre",
+    period: "2025 — 2026",
+    location: "Pasto, Colombia (Trabajo colaborativo)",
     achievements: [
-      "Built the Flux Analytics Platform from 0 to 1, now serving 200+ enterprise clients.",
-      "Implemented a Kafka-based pipeline ingesting 50M events/day into ClickHouse.",
-      "Mentored 3 junior developers; introduced pair-programming sessions company-wide.",
-    ],
-  },
-  {
-    id: 3,
-    role: "Frontend Engineer",
-    company: "Sprout Health",
-    period: "2018 — 2020",
-    location: "New York, NY",
-    achievements: [
-      "Developed the Sprout iOS/Android app reaching #4 in Health & Fitness on the App Store.",
-      "Rebuilt the web dashboard in React, cutting load time from 4.8s to 1.2s.",
-      "Established company-wide testing standards; raised test coverage from 24% to 78%.",
+      "Desarrollo colaborativo de un clon de Mercado Libre enfocado en arquitectura a gran escala.",
+      "Implementacion de gestion de productos, navegacion, busqueda y experiencia de usuario.",
+      "Aplicacion de buenas practicas de desarrollo y trabajo en equipo.",
     ],
   },
 ];
@@ -46,37 +34,36 @@ const WORK = [
 const ACADEMIC = [
   {
     id: 1,
-    role: "M.S. Computer Science",
-    company: "Stanford University",
-    period: "2016 — 2018",
-    location: "Stanford, CA",
+    role: "Ingenieria de Software",
+    company: "Universidad Cooperativa de Colombia",
+    period: "Actualmente",
+    location: "Pasto, Colombia",
     achievements: [
-      "Specialisation in Human-Computer Interaction and Distributed Systems.",
-      "Thesis: Adaptive UI generation from structured design tokens.",
-      "GPA 3.92 / 4.0 — Graduate Fellowship recipient.",
+      "Cursando 5to semestre con enfasis en desarrollo frontend y backend.",
+      "Formacion en arquitectura de software, diseno de software y bases de datos.",
+      "Desarrollo de proyectos reales como Freshcut y un clon de Mercado Libre.",
     ],
   },
   {
     id: 2,
-    role: "B.S. Software Engineering",
-    company: "University of Texas at Austin",
-    period: "2012 — 2016",
-    location: "Austin, TX",
+    role: "Bachillerato",
+    company: "Colegio La Inmaculada",
+    period: "Graduado",
+    location: "Pasto, Colombia",
     achievements: [
-      "Dean's List all eight semesters; graduated summa cum laude.",
-      "President of the Open Source Society — grew membership 3x in two years.",
-      "Teaching assistant for Algorithms and Data Structures (CS 311).",
+      "Formacion academica integral con enfasis en valores y disciplina.",
+      "Desarrollo de habilidades de trabajo en equipo y liderazgo.",
     ],
   },
   {
     id: 3,
-    role: "Exchange Programme",
-    company: "ETH Zürich",
-    period: "Spring 2015",
-    location: "Zürich, Switzerland",
+    role: "Primaria",
+    company: "Neneitos Creativos",
+    period: "Graduado",
+    location: "Pasto, Colombia",
     achievements: [
-      "Studied Advanced Algorithms, Parallel Programming, and Machine Learning.",
-      "Research assistant in the Computational Complexity group.",
+      "Primeros pasos en la formacion academica.",
+      "Desarrollo de creatividad y habilidades sociales.",
     ],
   },
 ];
@@ -97,7 +84,6 @@ export default function Experience() {
           <p className="label-tag mb-3">Trayectoria</p>
           <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">Experiencia</h2>
         </div>
-        {/* Tab pills */}
         <div className="flex self-start sm:self-end gap-2">
           {(["work", "academic"] as Tab[]).map((tab) => (
             <button
@@ -109,7 +95,7 @@ export default function Experience() {
                   : "border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--surface)]/80 hover:border-[var(--accent)]/40 hover:text-[var(--text)]"
               }`}
             >
-              {tab === "work" ? "Laboral" : "Académico"}
+              {tab === "work" ? "Laboral" : "Academico"}
             </button>
           ))}
         </div>

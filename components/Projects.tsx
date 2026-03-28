@@ -22,7 +22,7 @@ const PROJECTS = [
     year: "2026",
     description:
       "En un trabajo colaborativo se desarrolló un clon de Mercado Libre enfocado en fortalecer habilidades para crear aplicaciones a gran escala, abordando retos reales de arquitectura, rendimiento y organización del código. El proyecto incluyó funcionalidades clave como gestión de productos, navegación, búsqueda y experiencia de usuario. Más que replicar una plataforma, permitió entender cómo se construyen sistemas robustos y escalables en equipo. Fue una experiencia enfocada en buenas prácticas, trabajo colaborativo y desarrollo profesional.",
-    tags: ["Next.js", "Kafka", "ClickHouse", "AWS"],
+    tags: ["HTML", "CSS", "JavaScript"],
     featured: false,
     gradient: "from-[#0c1018] to-[#0f0f0f]",
     accent: "#5b8fd4",
