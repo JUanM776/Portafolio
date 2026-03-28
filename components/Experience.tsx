@@ -177,7 +177,8 @@ export default function Experience() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-7 bg-[#0d0d0d]/90 backdrop-blur-md border border-[var(--border)] rounded-2xl p-8 flex flex-col"
+              className="lg:col-span-7 backdrop-blur-md border rounded-2xl p-8 flex flex-col"
+              style={{ background: "var(--card)", borderColor: "var(--border)" }}
             >
               {/* Top accent */}
               <div className="flex items-center gap-3 mb-6">
@@ -199,7 +200,8 @@ export default function Experience() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.08, duration: 0.35 }}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-[var(--surface)]/60 border border-[var(--border)]"
+                    className="flex items-start gap-3 p-3 rounded-xl border"
+                    style={{ background: "var(--surface)", borderColor: "var(--border)" }}
                   >
                     <div className="w-5 h-5 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 flex items-center justify-center shrink-0 mt-0.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />

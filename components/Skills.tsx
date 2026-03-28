@@ -75,10 +75,10 @@ function SkillCard({ name, icon, color, index, darkIcon }: {
         animate={{
           scale: hovered ? 1.2 : 1,
           rotate: hovered ? 360 : 0,
-          filter: hovered ? `drop-shadow(0 0 8px ${color}90)` : "none",
         }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
         className={`w-10 h-10 object-contain relative z-10 ${darkIcon ? "dark-icon" : ""}`}
+        style={hovered && !darkIcon ? { filter: `drop-shadow(0 0 8px ${color}90)` } : {}}
       />
 
       {/* Nombre con scramble */}

@@ -46,7 +46,7 @@ const CONTACT_INFO = [
 export default function Footer() {
   return (
     <footer className="mt-8 border-t border-[var(--border)]">
-      <div className="bg-[var(--ink)]/80 backdrop-blur-sm py-20 px-6 md:px-10 text-center">
+      <div className="backdrop-blur-sm py-20 px-6 md:px-10 text-center" style={{ background: "var(--card)" }}>
         <p className="label-tag justify-center mb-6">Hablemos</p>
         <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-[var(--text)] mb-6 max-w-3xl mx-auto leading-tight">
           ¿Trabajamos juntos?
