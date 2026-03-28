@@ -10,13 +10,8 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Punto central — sigue rápido
-  const dotX = useSpring(mouseX, { stiffness: 800, damping: 40 });
-  const dotY = useSpring(mouseY, { stiffness: 800, damping: 40 });
-
-  // Halo — sigue con delay elegante
-  const haloX = useSpring(mouseX, { stiffness: 150, damping: 20 });
-  const haloY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+  const x = useSpring(mouseX, { stiffness: 500, damping: 30 });
+  const y = useSpring(mouseY, { stiffness: 500, damping: 30 });
 
   useEffect(() => {
     const touch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
@@ -25,7 +20,6 @@ export default function CustomCursor() {
 
   useEffect(() => {
     if (isTouch) return;
-
     const move = (e: MouseEvent) => {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = requestAnimationFrame(() => {
@@ -33,16 +27,12 @@ export default function CustomCursor() {
         mouseY.set(e.clientY);
       });
     };
-
     const onOver = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      if (t.closest("a, button, [data-cursor], input, textarea")) setHovered(true);
+      if ((e.target as HTMLElement).closest("a, button, [data-cursor]")) setHovered(true);
     };
     const onOut = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      if (t.closest("a, button, [data-cursor], input, textarea")) setHovered(false);
+      if ((e.target as HTMLElement).closest("a, button, [data-cursor]")) setHovered(false);
     };
-
     window.addEventListener("mousemove", move);
     window.addEventListener("mouseover", onOver);
     window.addEventListener("mouseout", onOut);
@@ -57,50 +47,28 @@ export default function CustomCursor() {
   if (isTouch) return null;
 
   return (
-    <>
-      {/* Halo — circulo grande difuso que sigue con delay */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none rounded-full mix-blend-screen"
-        style={{
-          x: haloX,
-          y: haloY,
-          translateX: "-50%",
-          translateY: "-50%",
-          zIndex: 9998,
-        }}
-        animate={{
-          width: hovered ? 60 : 36,
-          height: hovered ? 60 : 36,
-          opacity: hovered ? 0.6 : 0.3,
-        }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none"
+      style={{ x, y, zIndex: 9999 }}
+      animate={{ scale: hovered ? 0.85 : 1 }}
+      transition={{ duration: 0.15 }}
+    >
+      <svg
+        width="28"
+        height="34"
+        viewBox="0 0 28 34"
+        fill="none"
+        style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))" }}
       >
-        <div
-          className="w-full h-full rounded-full"
-          style={{
-            background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-          }}
+        {/* Flecha principal */}
+        <path
+          d="M1 1L1 28L8.5 21L14.5 33L19 31L13 19.5L22 18.5L1 1Z"
+          fill="var(--text)"
+          stroke="var(--surface)"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
         />
-      </motion.div>
-
-      {/* Punto central — pequeño y preciso */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none rounded-full"
-        style={{
-          x: dotX,
-          y: dotY,
-          translateX: "-50%",
-          translateY: "-50%",
-          zIndex: 9999,
-          background: "var(--accent)",
-        }}
-        animate={{
-          width: hovered ? 8 : 5,
-          height: hovered ? 8 : 5,
-          scale: hovered ? 1.2 : 1,
-        }}
-        transition={{ duration: 0.15, ease: "easeOut" }}
-      />
-    </>
+      </svg>
+    </motion.div>
   );
 }
