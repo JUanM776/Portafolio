@@ -45,7 +45,7 @@ const CONTACT_INFO = [
 
 export default function Footer() {
   return (
-    <footer className="mt-8 border-t border-[var(--border)]">
+    <footer className="mt-8 border-t border-[var(--border)]" role="contentinfo" aria-label="Pie de pagina">
       <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10 text-center" style={{ background: "var(--card)" }}>
         <p className="label-tag justify-center mb-6">Hablemos</p>
         <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-[var(--text)] mb-6 max-w-3xl mx-auto leading-tight">
