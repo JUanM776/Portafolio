@@ -58,7 +58,7 @@ export default function Navbar() {
             <li key={href}>
               <a
                 href={href}
-                className="text-xs font-medium tracking-widest uppercase transition-colors duration-200"
+                className="nav-link text-xs font-medium tracking-widest uppercase transition-colors duration-200"
                 style={{ color: "var(--text-secondary)" }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "var(--accent)"}
                 onMouseLeave={(e) => e.currentTarget.style.color = "var(--text-secondary)"}

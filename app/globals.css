@@ -368,3 +368,27 @@ html, html * {
 .card-lift { will-change: transform; }
 .animate-marquee, .animate-marquee-reverse { will-change: transform; }
 .reveal { will-change: opacity, transform; }
+
+/* Navbar link underline animado */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Selection color */
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
