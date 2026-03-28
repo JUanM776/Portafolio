@@ -23,13 +23,13 @@
   --ink:        #f8fafc;
   --parchment:  #000000;
   --warm-mid:   #1e293b;
-  --accent:     #1d4ed8;
-  --accent-dim: #1e40af;
+  --accent:     #3b82f6;
+  --accent-dim: #2563eb;
   --surface:    #ffffff;
   --border:     #cbd5e1;
-  --text:       #000000;
-  --text-secondary: #1e293b;
-  --text-muted: #374151;
+  --text:       #3b82f6;
+  --text-secondary: #60a5fa;
+  --text-muted: #93c5fd;
   --overlay:    rgba(255,255,255,0.75);
   --card:       rgba(255,255,255,0.92);
   --card-border: #cbd5e1;
@@ -199,6 +199,7 @@ html, html * {
 
 .light h1, .light h2, .light h3, .light h4 {
   text-shadow: none;
+  color: var(--accent);
 }
 
 .light p, .light span, .light a {
@@ -234,6 +235,21 @@ html, html * {
 }
 .dark .light-backdrop {
   display: none;
+}
+
+/* Fondo de secciones en modo claro */
+.light section {
+  position: relative;
+}
+.light section::before {
+  content: "";
+  position: absolute;
+  inset: -20px -40px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .light .btn-cv {
