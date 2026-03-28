@@ -20,10 +20,10 @@ const TESTIMONIALS = [
   {
     id: 3,
     quote: "Algo que destaca de Manuel es su mentalidad de aprendizaje constante. En cada proyecto se nota cómo mejora y aplica nuevas tecnologías. Además, sabe trabajar en equipo y comunicar sus ideas de forma clara, lo cual es clave en desarrollo de software.",
-    author: "Patricia Florez",
-    role: "Product Director",
-    company: "Sprout Health",
-    initial: "P",
+    author: "Juan carlos FLorez",
+    role: "Odontologo",
+    company: "Oral-care",
+    initial: "JC",
     color: "#60a5fa",
   },
    {
