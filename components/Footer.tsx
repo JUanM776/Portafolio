@@ -1,4 +1,7 @@
 ﻿// components/Footer.tsx
+"use client";
+import { useState } from "react";
+
 const SOCIALS = [
   {
     label: "GitHub",
@@ -44,23 +47,86 @@ const CONTACT_INFO = [
 ];
 
 export default function Footer() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Contacto desde portafolio — ${name}`);
+    const body = encodeURIComponent(`Hola Juan Manuel,\n\n${message}\n\nDe: ${name}\nEmail: ${email}`);
+    window.open(`mailto:juanmanuel@example.com?subject=${subject}&body=${body}`, "_self");
+  };
+
   return (
     <footer className="mt-8 border-t border-[var(--border)]" role="contentinfo" aria-label="Pie de pagina">
-      <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10 text-center" style={{ background: "var(--card)" }}>
-        <p className="label-tag justify-center mb-6">Hablemos</p>
-        <h2 className="font-display text-4xl md:text-6xl lg:text-7xl text-[var(--text)] mb-6 max-w-3xl mx-auto leading-tight">
-          ¿Trabajamos juntos?
-        </h2>
-        <p className="text-sm mb-10 max-w-md mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          Estoy disponible para proyectos, colaboraciones y oportunidades. No dudes en escribirme.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a href="mailto:juanmanuel@example.com" className="bg-[var(--accent)] text-[var(--ink)] text-xs font-medium tracking-widest uppercase px-8 py-3.5 rounded-sm hover:bg-[var(--accent-dim)] transition-colors">
-            Enviar mensaje
-          </a>
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] text-xs font-medium tracking-widest uppercase px-8 py-3.5 rounded-sm hover:border-[#93c5fd] hover:bg-[var(--accent)]/10 hover:text-[var(--accent)] transition-colors">
-            Descargar CV
-          </a>
+      <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10" style={{ background: "var(--card)" }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="label-tag justify-center mb-6">Hablemos</p>
+          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)] mb-6 text-center leading-tight">
+            ¿Trabajamos juntos?
+          </h2>
+          <p className="text-sm mb-10 max-w-md mx-auto leading-relaxed text-center" style={{ color: "var(--text-secondary)" }}>
+            Estoy disponible para proyectos, colaboraciones y oportunidades. No dudes en escribirme.
+          </p>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="text"
+                placeholder="Tu nombre"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="px-4 py-3 rounded-lg text-sm outline-none transition-colors duration-200"
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                }}
+                aria-label="Tu nombre"
+              />
+              <input
+                type="email"
+                placeholder="Tu email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="px-4 py-3 rounded-lg text-sm outline-none transition-colors duration-200"
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                }}
+                aria-label="Tu email"
+              />
+            </div>
+            <textarea
+              placeholder="Tu mensaje"
+              required
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="px-4 py-3 rounded-lg text-sm outline-none resize-none transition-colors duration-200"
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+              }}
+              aria-label="Tu mensaje"
+            />
+            <div className="flex flex-wrap justify-center gap-4 mt-2">
+              <button
+                type="submit"
+                className="bg-[var(--accent)] text-[var(--ink)] text-xs font-medium tracking-widest uppercase px-8 py-3.5 rounded-sm hover:bg-[var(--accent-dim)] transition-colors"
+              >
+                Enviar mensaje
+              </button>
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] text-xs font-medium tracking-widest uppercase px-8 py-3.5 rounded-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
+                Descargar CV
+              </a>
+            </div>
+          </form>
         </div>
       </div>
 
