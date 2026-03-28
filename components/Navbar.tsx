@@ -39,7 +39,7 @@ export default function Navbar() {
     >
       {/* flex row: logo on left, desktop nav + CV in center-right */}
       <nav
-        className="mx-auto max-w-7xl px-6 md:px-10 h-24 flex items-center justify-between"
+        className="mx-auto max-w-7xl px-6 md:px-10 h-16 sm:h-24 flex items-center justify-between"
         aria-label="Primary navigation"
       >
         {/* Logo mark */}
@@ -47,7 +47,7 @@ export default function Navbar() {
           <img
             src="/logos/Logo_profesional.svg"
             alt="Logo"
-            className="h-20 w-auto logo-filter"
+            className="h-12 sm:h-20 w-auto logo-filter"
           />
         </a>
 
