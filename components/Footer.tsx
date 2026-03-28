@@ -90,6 +90,8 @@ export default function Footer() {
                 type="email"
                 placeholder="Tu email"
                 required
+                pattern="[a-zA-Z0-9._%+\-]+@(gmail|hotmail|outlook|yahoo|live|icloud|protonmail|ucc\.edu)\.(com|co|es|net|org)"
+                title="Ingresa un correo valido (Gmail, Hotmail, Outlook, Yahoo, etc.)"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="px-4 py-3 rounded-lg text-sm outline-none transition-colors duration-200"
