@@ -47,12 +47,6 @@ const INTERESTS = [
       { src: "/interests/yop.jpg", pos: "top center" },
     ],
   },
-  {
-    emoji: "☕",
-    title: "Algo más",
-    description: "Ese hobby o pasión extra que no encaja en ninguna categoría pero te define.",
-    images: [],
-  },
 ];
 
 type ImageItem = { src: string; pos?: string } | string;
