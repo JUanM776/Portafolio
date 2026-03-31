@@ -135,20 +135,37 @@ export default function AboutMe() {
         <div className="reveal delay-200 lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[520px] group">
             {/* Glow de fondo */}
-            <div className="absolute -inset-4 rounded-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 blur-2xl" style={{ background: "var(--accent)" }} />
-            {/* Marco decorativo */}
-            <div className="absolute -inset-3 border border-[var(--accent)]/20 rounded-xl" />
-            <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 rounded-tl-xl" style={{ borderColor: "var(--accent)" }} />
-            <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 rounded-br-xl" style={{ borderColor: "var(--accent)" }} />
+            <div className="absolute -inset-6 rounded-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700 blur-3xl" style={{ background: "var(--accent)" }} />
+
+            {/* Anillo decorativo exterior */}
+            <div className="absolute -inset-4 rounded-2xl border border-dashed opacity-20" style={{ borderColor: "var(--accent)" }} />
+
+            {/* Puntos decorativos */}
+            <div className="absolute -top-2 -right-2 w-3 h-3 rounded-full" style={{ background: "var(--accent)" }} />
+            <div className="absolute -bottom-2 -left-2 w-2 h-2 rounded-full opacity-60" style={{ background: "var(--accent)" }} />
+            <div className="absolute top-1/2 -right-4 w-1.5 h-1.5 rounded-full opacity-40" style={{ background: "var(--accent)" }} />
+
+            {/* Marco principal */}
+            <div className="absolute -inset-1 rounded-2xl" style={{ background: "linear-gradient(135deg, var(--accent), transparent 50%)", opacity: 0.3 }} />
+
+            {/* Esquinas */}
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 rounded-tl-2xl" style={{ borderColor: "var(--accent)" }} />
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 rounded-br-2xl" style={{ borderColor: "var(--accent)" }} />
+
             {/* Foto */}
-            <div className="relative w-full h-full rounded-xl overflow-hidden">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/Foto_portafolio.jpeg"
                 alt="Juan Manuel Cordoba Florez"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               {/* Gradiente inferior */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              {/* Texto sobre la foto */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-xs font-semibold tracking-widest uppercase opacity-80">Ingeniero de Software</p>
+                <div className="mt-2 h-0.5 w-12 rounded-full" style={{ background: "var(--accent)" }} />
+              </div>
             </div>
           </div>
         </div>
