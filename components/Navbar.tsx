@@ -73,9 +73,9 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           {/* CV button â€” opens PDF in a new tab
-              Place your CV at /public/cv.pdf to make this work */}
+              Place your CV at /public/CV.pdf to make this work */}
           <a
-            href="/cv.pdf"
+            href="/CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-cv border border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)] text-xs font-medium tracking-widest uppercase px-5 py-2 rounded-sm hover:bg-[var(--accent)] hover:text-[var(--ink)] transition-colors duration-300"
