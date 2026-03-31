@@ -133,16 +133,22 @@ export default function AboutMe() {
         </div>
 
         <div className="reveal delay-200 lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[520px]">
-            <div className="absolute -inset-3 border border-[#93c5fd]/20 rounded-sm" />
-            <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#93c5fd]" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#93c5fd]" />
-            <div className="w-full h-full rounded-sm overflow-hidden relative">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[420px] lg:h-[520px] group">
+            {/* Glow de fondo */}
+            <div className="absolute -inset-4 rounded-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 blur-2xl" style={{ background: "var(--accent)" }} />
+            {/* Marco decorativo */}
+            <div className="absolute -inset-3 border border-[var(--accent)]/20 rounded-xl" />
+            <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 rounded-tl-xl" style={{ borderColor: "var(--accent)" }} />
+            <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 rounded-br-xl" style={{ borderColor: "var(--accent)" }} />
+            {/* Foto */}
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
               <img
                 src="/Foto_portafolio.jpeg"
                 alt="Juan Manuel Cordoba Florez"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
+              {/* Gradiente inferior */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
           </div>
         </div>
