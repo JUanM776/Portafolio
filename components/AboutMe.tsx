@@ -137,10 +137,12 @@ export default function AboutMe() {
             <div className="absolute -inset-3 border border-[#93c5fd]/20 rounded-sm" />
             <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#93c5fd]" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#93c5fd]" />
-            <div className="w-full h-full bg-[var(--surface)] rounded-sm overflow-hidden relative">
-              <div className="absolute inset-0 bg-linear-to-br from-[#1e1a14] via-[#141414] to-[#0a0a0a] flex items-center justify-center">
-                <span className="font-display text-7xl text-[var(--accent)]/20">JMC</span>
-              </div>
+            <div className="w-full h-full rounded-sm overflow-hidden relative">
+              <img
+                src="/Foto_portafolio.jpeg"
+                alt="Juan Manuel Cordoba Florez"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
