@@ -1,4 +1,5 @@
 ﻿// components/Testimonials.tsx
+import { useLang } from "@/context/LanguageContext";
 const TESTIMONIALS = [
   {
     id: 1,
@@ -46,6 +47,7 @@ function QuoteMark({ color }: { color: string }) {
 }
 
 export default function Testimonials() {
+  const { t } = useLang();
   return (
     <section id="testimonials" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Testimonios">
       <hr className="section-rule mb-16" />
@@ -53,8 +55,8 @@ export default function Testimonials() {
       {/* Header — flex row */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
         <div className="flex flex-col gap-3">
-          <p className="label-tag">Opiniones</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">Testimonios</h2>
+          <p className="label-tag">{t("testimonials.label")}</p>
+          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">{t("testimonials.title")}</h2>
         </div>
       </header>
 

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "@/context/LanguageContext";
 
 type Tab = "work" | "academic";
 
@@ -71,6 +72,7 @@ const ACADEMIC = [
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<Tab>("work");
   const [active, setActive] = useState(0);
+  const { t } = useLang();
   const items = activeTab === "work" ? WORK : ACADEMIC;
   const selected = items[active] ?? items[0];
 
@@ -81,8 +83,8 @@ export default function Experience() {
       {/* Header */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
         <div>
-          <p className="label-tag mb-3">Trayectoria</p>
-          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">Experiencia</h2>
+          <p className="label-tag mb-3">{t("experience.label")}</p>
+          <h2 className="font-display text-4xl md:text-6xl text-[var(--text)]">{t("experience.title")}</h2>
         </div>
         <div className="flex self-start sm:self-end gap-2">
           {(["work", "academic"] as Tab[]).map((tab) => (
@@ -95,7 +97,7 @@ export default function Experience() {
                   : "border border-[var(--border)] text-[var(--text-secondary)] bg-[var(--surface)]/80 hover:border-[var(--accent)]/40 hover:text-[var(--text)]"
               }`}
             >
-              {tab === "work" ? "Laboral" : "Academico"}
+              {tab === "work" ? t("experience.work") : t("experience.academic")}
             </button>
           ))}
         </div>

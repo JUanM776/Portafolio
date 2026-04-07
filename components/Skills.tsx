@@ -1,6 +1,7 @@
 ﻿"use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLang } from "@/context/LanguageContext";
 
 const SKILLS = [
   { name: "React",      icon: "/icons/react_dark.svg",          color: "#61dafb" },
@@ -118,17 +119,18 @@ function SkillCard({ name, icon, color, index, darkIcon }: {
 }
 
 export default function Skills() {
+  const { t } = useLang();
   return (
     <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Habilidades tecnicas">
 
       {/* Header centrado */}
       <div className="flex flex-col items-center text-center mb-14">
-        <p className="label-tag reveal mb-4">Lo que uso</p>
+        <p className="label-tag reveal mb-4">{t("skills.label")}</p>
         <h2 className="reveal delay-100 font-display text-4xl sm:text-6xl leading-none mb-4" style={{ color: "var(--text)" }}>
-          Skills
+          {t("skills.title")}
         </h2>
         <p className="reveal delay-200 text-sm max-w-md leading-relaxed rounded-lg px-4 py-2 backdrop-blur-sm" style={{ color: "var(--text-secondary)", background: "var(--card)" }}>
-          Estas son las tecnologias con las que trabajo dia a dia, siempre aprendiendo algo nuevo.
+          {t("skills.description")}
         </p>
       </div>
 

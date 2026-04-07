@@ -7,7 +7,6 @@ import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
-
 function SectionDivider({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-4 px-6 md:px-10 max-w-7xl mx-auto py-8">

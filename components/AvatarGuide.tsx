@@ -1,15 +1,7 @@
 ﻿"use client";
 import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-
-const MESSAGES: Record<string, string> = {
-  about:        "Hola! Soy Juan Manuel\nBienvenido a mi portafolio",
-  skills:       "Estas son las tecnologias\ncon las que trabajo",
-  projects:     "Aqui puedes ver\nmis proyectos",
-  testimonials: "Lo que dicen quienes\nhan trabajado conmigo",
-  experience:   "Mi recorrido\nprofesional hasta hoy",
-};
-const DEFAULT_MSG = "Explora mi portafolio\nhaciendo scroll";
+import { useLang } from "@/context/LanguageContext";
 
 function Doll({ action }: { action: string }) {
   const isWalk = action === "walk";
@@ -160,11 +152,21 @@ function Doll({ action }: { action: string }) {
 }
 
 export default function AvatarGuide() {
-  const [message, setMessage] = useState(DEFAULT_MSG);
+  const [message, setMessage] = useState("");
   const [msgKey, setMsgKey] = useState(0);
   const [action, setAction] = useState("idle");
   const actionRef = useRef("idle");
   const bodyControls = useAnimation();
+  const { t } = useLang();
+
+  const MESSAGES: Record<string, string> = {
+    about:        t("avatar.about"),
+    skills:       t("avatar.skills"),
+    projects:     t("avatar.projects"),
+    testimonials: t("avatar.testimonials"),
+    experience:   t("avatar.experience"),
+  };
+  const DEFAULT_MSG = t("avatar.default");
 
   const startFloat = useCallback(() => {
     bodyControls.start({
@@ -208,6 +210,11 @@ export default function AvatarGuide() {
     return () => observers.forEach((o) => o.disconnect());
   // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    setMessage(t("avatar.default"));
+  // eslint-disable-next-line
+  }, [t]);
 
   useEffect(() => { startFloat(); }, [startFloat]);
 

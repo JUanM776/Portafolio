@@ -1,6 +1,7 @@
 // components/Footer.tsx
 "use client";
 import { useState } from "react";
+import { useLang } from "@/context/LanguageContext";
 
 const SOCIALS = [
   {
@@ -50,6 +51,7 @@ export default function Footer() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const { t } = useLang();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +76,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
-                placeholder="Tu nombre"
+                placeholder={t("footer.namePlaceholder")}
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -84,11 +86,11 @@ export default function Footer() {
                   border: "1px solid var(--border)",
                   color: "var(--text)",
                 }}
-                aria-label="Tu nombre"
+                aria-label={t("footer.namePlaceholder")}
               />
               <input
                 type="email"
-                placeholder="Tu email"
+                placeholder={t("footer.emailPlaceholder")}
                 required
                 pattern="[a-zA-Z0-9._%+\-]+@(gmail|hotmail|outlook|yahoo|live|icloud|protonmail|ucc\.edu)\.(com|co|es|net|org)"
                 title="Ingresa un correo valido (Gmail, Hotmail, Outlook, Yahoo, etc.)"
@@ -100,11 +102,11 @@ export default function Footer() {
                   border: "1px solid var(--border)",
                   color: "var(--text)",
                 }}
-                aria-label="Tu email"
+                aria-label={t("footer.emailPlaceholder")}
               />
             </div>
             <textarea
-              placeholder="Tu mensaje"
+              placeholder={t("footer.messagePlaceholder")}
               required
               rows={4}
               value={message}
@@ -115,7 +117,7 @@ export default function Footer() {
                 border: "1px solid var(--border)",
                 color: "var(--text)",
               }}
-              aria-label="Tu mensaje"
+              aria-label={t("footer.messagePlaceholder")}
             />
             <div className="flex flex-wrap justify-center gap-4 mt-2">
               <button

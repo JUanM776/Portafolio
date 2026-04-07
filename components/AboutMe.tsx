@@ -1,6 +1,7 @@
 ﻿// components/AboutMe.tsx
 "use client";
 import { useState, useEffect } from "react";
+import { useLang } from "@/context/LanguageContext";
 
 const INTERESTS = [
   {
@@ -111,6 +112,7 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
 }
 
 export default function AboutMe() {
+  const { t } = useLang();
   return (
     <section id="about" className="noise relative flex flex-col pt-24 pb-20 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Acerca de mi">
 
@@ -121,13 +123,11 @@ export default function AboutMe() {
             <span className="text-[var(--accent)]">Cordoba Florez</span>
           </h1>
           <p className="reveal delay-200 text-sm md:text-base max-w-lg mb-8 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-            Estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia, campus Pasto.
-            Principalmente atraído por el desarrollo frontend, donde combino lógica y diseño para construir
-            interfaces que realmente se sienten bien.
+            {t("hero.description")}
           </p>
           <div className="reveal delay-400 flex flex-wrap items-center gap-4">
             <a href="#projects" className="bg-[var(--accent)] text-[var(--ink)] text-xs font-medium tracking-widest uppercase px-7 py-3 rounded-sm hover:bg-[var(--accent-dim)] transition-colors">
-              Ver mi trabajo
+              {t("hero.cta")}
             </a>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function AboutMe() {
 
       <div className="py-16">
         <h2 className="reveal delay-100 font-display text-4xl sm:text-5xl text-[var(--text)] mb-12 leading-none">
-          Un poco sobre mí
+          {t("about.title")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {INTERESTS.map(({ emoji, title, description, images }, i) => (
@@ -183,7 +183,7 @@ export default function AboutMe() {
 
         {/* ── Spotify playlist ── */}
         <div className="reveal mt-10">
-          <p className="label-tag mb-4">Lo que escucho</p>
+          <p className="label-tag mb-4">{t("spotify.label")}</p>
           <div className="rounded-2xl overflow-hidden border border-[var(--border)]">
             <iframe
               title="Playlist de Spotify de Juan Manuel"

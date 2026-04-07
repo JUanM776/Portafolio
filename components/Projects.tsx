@@ -1,5 +1,6 @@
 ﻿// components/Projects.tsx
 "use client";
+import { useLang } from "@/context/LanguageContext";
 
 const PROJECTS = [
   {
@@ -39,14 +40,15 @@ function ArrowIcon() {
 }
 
 export default function Projects() {
+  const { t } = useLang();
   return (
     <section id="projects" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Proyectos">
       <hr className="section-rule mb-16" />
 
       <header className="flex flex-col gap-4 mb-12">
-        <p className="label-tag mb-3">Trabajo seleccionado</p>
+        <p className="label-tag mb-3">{t("projects.label")}</p>
         <h2 className="font-display text-4xl md:text-6xl" style={{ color: "var(--text)" }}>
-          Proyectos
+          {t("projects.title")}
         </h2>
       </header>
 
@@ -90,7 +92,7 @@ export default function Projects() {
               <a href={p.link} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs tracking-widest uppercase font-medium self-start opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                 style={{ color: p.accent }}>
-                Ver proyecto <ArrowIcon />
+                {t("projects.viewProject")} <ArrowIcon />
               </a>
             </div>
 
