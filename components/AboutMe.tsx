@@ -28,7 +28,6 @@ const INTEREST_IMAGES = [
     { src: "/interests/sandona.jpg", pos: "bottom center" },
     { src: "/interests/yop.jpg", pos: "top center" },
   ]},
-  { key: "other", emoji: "\u2615", images: [] },
 ];
 
 type ImageItem = { src: string; pos?: string } | string;

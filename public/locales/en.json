@@ -95,7 +95,9 @@
     "in": "in Pasto, Colombia",
     "namePlaceholder": "Your name",
     "emailPlaceholder": "Your email",
-    "messagePlaceholder": "Your message"
+    "messagePlaceholder": "Your message",
+    "location": "Location",
+    "university": "University"
   },
   "stats": {
     "semester": "Semester completed",
