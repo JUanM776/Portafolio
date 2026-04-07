@@ -64,12 +64,12 @@ export default function Footer() {
     <footer className="mt-8 border-t border-[var(--border)]" role="contentinfo" aria-label="Pie de pagina">
       <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10" style={{ background: "var(--card)" }}>
         <div className="max-w-2xl mx-auto">
-          <p className="label-tag justify-center mb-6">Hablemos</p>
+          <p className="label-tag justify-center mb-6">{t("footer.label")}</p>
           <h2 className="font-display text-4xl md:text-6xl text-[var(--text)] mb-6 text-center leading-tight">
-            ¿Trabajamos juntos?
+            {t("footer.title")}
           </h2>
           <p className="text-sm mb-10 max-w-md mx-auto leading-relaxed text-center" style={{ color: "var(--text-secondary)" }}>
-            Estoy disponible para proyectos, colaboraciones y oportunidades. No dudes en escribirme.
+            {t("footer.description")}
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-8">
@@ -137,7 +137,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-2 border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-xl p-6">
-            <p className="label-tag mb-5">Contacto directo</p>
+            <p className="label-tag mb-5">{t("footer.contact")}</p>
             <div className="flex flex-col gap-3">
               {CONTACT_INFO.map(({ label, value, href, icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-3 rounded-lg hover:bg-[#0d1a14] transition-colors duration-200">
@@ -152,7 +152,7 @@ export default function Footer() {
           </div>
 
           <div className="border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-xl p-6 flex flex-col">
-            <p className="label-tag mb-5">Redes</p>
+            <p className="label-tag mb-5">{t("footer.networks")}</p>
             <div className="flex flex-col gap-2 flex-1">
               {SOCIALS.map(({ label, href, icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 p-3 rounded-lg hover:bg-[#0d1a14] transition-colors duration-200">
@@ -168,10 +168,10 @@ export default function Footer() {
 
       <div className="border-t border-[var(--border)] max-w-7xl mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-[11px] tracking-wide" style={{ color: "var(--text-muted)" }}>
-          © {new Date().getFullYear()} Juan Manuel Cordoba Florez. Todos los derechos reservados.
+          © {new Date().getFullYear()} Juan Manuel Cordoba Florez. {t("footer.rights")}
         </p>
         <p className="text-[11px] tracking-wide" style={{ color: "var(--text-muted)" }}>
-          Hecho con <span className="text-[var(--accent)]">♥</span> en Pasto, Colombia
+          {t("footer.made")} <span className="text-[var(--accent)]">♥</span> {t("footer.in")}
         </p>
       </div>
     </footer>

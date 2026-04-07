@@ -159,15 +159,6 @@ export default function AvatarGuide() {
   const bodyControls = useAnimation();
   const { t } = useLang();
 
-  const MESSAGES: Record<string, string> = {
-    about:        t("avatar.about"),
-    skills:       t("avatar.skills"),
-    projects:     t("avatar.projects"),
-    testimonials: t("avatar.testimonials"),
-    experience:   t("avatar.experience"),
-  };
-  const DEFAULT_MSG = t("avatar.default");
-
   const startFloat = useCallback(() => {
     bodyControls.start({
       y: [0, -10, 0],
@@ -192,14 +183,14 @@ export default function AvatarGuide() {
   }, [bodyControls, startFloat]);
 
   useEffect(() => {
-    const ids = Object.keys(MESSAGES);
+    const ids = ["about", "skills", "projects", "testimonials", "experience"];
     const observers: IntersectionObserver[] = [];
     ids.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
-          setMessage(MESSAGES[id]);
+          setMessage(t(`avatar.${id}`));
           setMsgKey((k) => k + 1);
           if (actionRef.current === "idle") doAction("wave");
         }
@@ -209,7 +200,7 @@ export default function AvatarGuide() {
     });
     return () => observers.forEach((o) => o.disconnect());
   // eslint-disable-next-line
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     setMessage(t("avatar.default"));
@@ -246,7 +237,7 @@ export default function AvatarGuide() {
           animate={bodyControls}
           className="cursor-pointer"
           whileHover={{ scale:1.1 }}
-          onClick={() => { setMessage(DEFAULT_MSG); setMsgKey((k)=>k+1); doAction("jump"); }}
+          onClick={() => { setMessage(t("avatar.default")); setMsgKey((k)=>k+1); doAction("jump"); }}
         >
           <Doll action={action} />
         </motion.div>
