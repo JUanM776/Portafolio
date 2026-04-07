@@ -1,41 +1,10 @@
-﻿// components/Testimonials.tsx
+// components/Testimonials.tsx
 import { useLang } from "@/context/LanguageContext";
-const TESTIMONIALS = [
-  {
-    id: 1,
-    quote: "Trabajar con Manuel fue una experiencia muy sólida. Tiene una capacidad muy clara para estructurar soluciones y convertir ideas en funcionalidades reales. En los proyectos en los que coincidimos, siempre destacó por su organización y por mantener un código limpio y entendible.",
-    author: "Duvan Urresti",
-    role: "ingeniero civil",
-    company: "contratista",
-    initial: "D",
-    color: "#93c5fd",
-  },
-  {
-    id: 2,
-    quote: "Manuel no solo cumple con lo que se le pide, sino que va más allá. Propone mejoras, cuida los detalles de la interfaz y se preocupa por la experiencia del usuario. Es alguien en quien puedes confiar cuando necesitas resultados de calidad.",
-    author: "Andres Guerrero",
-    role: "Ingeniero civil",
-    initial: "AG",
-    color: "#5b8fd4",
-  },
-  {
-    id: 3,
-    quote: "Algo que destaca de Manuel es su mentalidad de aprendizaje constante. En cada proyecto se nota cómo mejora y aplica nuevas tecnologías. Además, sabe trabajar en equipo y comunicar sus ideas de forma clara, lo cual es clave en desarrollo de software.",
-    author: "Juan carlos FLorez",
-    role: "Odontologo",
-    company: "Oral-care",
-    initial: "JC",
-    color: "#60a5fa",
-  },
-   {
-    id: 4,
-    quote: "Manuel tiene un enfoque muy profesional a la hora de desarrollar. Es responsable, cumple con los tiempos y se adapta bien a los cambios. Su trabajo refleja dedicación y compromiso con cada detalle del proyecto.",
-    author: "Brayan Acosta",
-    role: "CEO y mecanico",
-    company: "Taller Suzuki",
-    initial: "B",
-    color: "#60a5fa",
-  },
+const TESTIMONIALS_META = [
+  { id: 1, quoteKey: "testimonials.t1", author: "Duvan Urresti", role: "ingeniero civil", company: "contratista", initial: "D", color: "#93c5fd" },
+  { id: 2, quoteKey: "testimonials.t2", author: "Andres Guerrero", role: "Ingeniero civil", initial: "AG", color: "#5b8fd4" },
+  { id: 3, quoteKey: "testimonials.t3", author: "Juan Carlos Florez", role: "Odontologo", company: "Oral-care", initial: "JC", color: "#60a5fa" },
+  { id: 4, quoteKey: "testimonials.t4", author: "Brayan Acosta", role: "CEO y mecanico", company: "Taller Suzuki", initial: "B", color: "#60a5fa" },
 ];
 
 function QuoteMark({ color }: { color: string }) {
@@ -62,35 +31,35 @@ export default function Testimonials() {
 
       {/* Grid de tarjetas — grid responsive */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {TESTIMONIALS.map((t) => (
+        {TESTIMONIALS_META.map((tm) => (
           <div
-            key={t.id}
+            key={tm.id}
             className="card-lift flex flex-col bg-[var(--surface)]/80 backdrop-blur-sm border border-[var(--border)] rounded-2xl overflow-hidden"
           >
             {/* Accent top */}
-            <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${t.color}, transparent)` }} />
+            <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${tm.color}, transparent)` }} />
 
             {/* Contenido — flex column */}
             <div className="flex flex-col flex-1 p-8">
-              <QuoteMark color={t.color} />
+              <QuoteMark color={tm.color} />
 
               {/* Quote — flex-1 empuja el footer abajo */}
               <blockquote className="text-[var(--text-secondary)] text-sm leading-loose mb-8 flex-1 italic">
-                &ldquo;{t.quote}&rdquo;
+                &ldquo;{t(tm.quoteKey)}&rdquo;
               </blockquote>
 
               {/* Author — flex row */}
               <footer className="flex items-center gap-4 pt-4 border-t border-[var(--border)]">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-[var(--ink)] shrink-0"
-                  style={{ background: t.color }}
+                  style={{ background: tm.color }}
                   aria-hidden
                 >
-                  {t.initial}
+                  {tm.initial}
                 </div>
                 <div className="flex flex-col">
-                  <p className="text-[var(--text)] text-sm font-semibold">{t.author}</p>
-                  <p className="text-[11px] tracking-wide" style={{ color: "var(--text-muted)" }}>{t.role} · {t.company}</p>
+                  <p className="text-[var(--text)] text-sm font-semibold">{tm.author}</p>
+                  <p className="text-[11px] tracking-wide" style={{ color: "var(--text-muted)" }}>{tm.role} · {tm.company}</p>
                 </div>
               </footer>
             </div>

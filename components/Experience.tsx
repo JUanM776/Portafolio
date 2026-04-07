@@ -5,74 +5,21 @@ import { useLang } from "@/context/LanguageContext";
 
 type Tab = "work" | "academic";
 
-const WORK = [
-  {
-    id: 1,
-    role: "Desarrollador Frontend",
-    company: "Proyecto Freshcut",
-    period: "2025 — Presente",
-    location: "Pasto, Colombia",
-    achievements: [
-      "Desarrollo de una app de barberia con inteligencia artificial para recomendar cortes de cabello.",
-      "Implementacion de la interfaz con TypeScript, CSS, HTML y JavaScript.",
-      "Integracion de funcionalidades como gestion de citas, historial de clientes e ingresos.",
-    ],
-  },
-  {
-    id: 2,
-    role: "Desarrollador Full-Stack",
-    company: "Clon de Mercado Libre",
-    period: "2025 — 2026",
-    location: "Pasto, Colombia (Trabajo colaborativo)",
-    achievements: [
-      "Desarrollo colaborativo de un clon de Mercado Libre enfocado en arquitectura a gran escala.",
-      "Implementacion de gestion de productos, navegacion, busqueda y experiencia de usuario.",
-      "Aplicacion de buenas practicas de desarrollo y trabajo en equipo.",
-    ],
-  },
-];
-
-const ACADEMIC = [
-  {
-    id: 1,
-    role: "Ingenieria de Software",
-    company: "Universidad Cooperativa de Colombia",
-    period: "Actualmente",
-    location: "Pasto, Colombia",
-    achievements: [
-      "Cursando 5to semestre con enfasis en desarrollo frontend y backend.",
-      "Formacion en arquitectura de software, diseno de software y bases de datos.",
-      "Desarrollo de proyectos reales como Freshcut y un clon de Mercado Libre.",
-    ],
-  },
-  {
-    id: 2,
-    role: "Bachillerato",
-    company: "Colegio La Inmaculada",
-    period: "Graduado",
-    location: "Pasto, Colombia",
-    achievements: [
-      "Formacion academica integral con enfasis en valores y disciplina.",
-      "Desarrollo de habilidades de trabajo en equipo y liderazgo.",
-    ],
-  },
-  {
-    id: 3,
-    role: "Primaria",
-    company: "Neneitos Creativos",
-    period: "Graduado",
-    location: "Pasto, Colombia",
-    achievements: [
-      "Primeros pasos en la formacion academica.",
-      "Desarrollo de creatividad y habilidades sociales.",
-    ],
-  },
-];
-
 export default function Experience() {
   const [activeTab, setActiveTab] = useState<Tab>("work");
   const [active, setActive] = useState(0);
   const { t } = useLang();
+
+  const WORK = [
+    { id: 1, role: t("experience.w1_role"), company: t("experience.w1_company"), period: t("experience.w1_period"), location: t("experience.w1_location"), achievements: [t("experience.w1_a1"), t("experience.w1_a2"), t("experience.w1_a3")] },
+    { id: 2, role: t("experience.w2_role"), company: t("experience.w2_company"), period: t("experience.w2_period"), location: t("experience.w2_location"), achievements: [t("experience.w2_a1"), t("experience.w2_a2"), t("experience.w2_a3")] },
+  ];
+  const ACADEMIC = [
+    { id: 1, role: t("experience.a1_role"), company: t("experience.a1_company"), period: t("experience.a1_period"), location: t("experience.a1_location"), achievements: [t("experience.a1_a1"), t("experience.a1_a2"), t("experience.a1_a3")] },
+    { id: 2, role: t("experience.a2_role"), company: t("experience.a2_company"), period: t("experience.a2_period"), location: t("experience.a2_location"), achievements: [t("experience.a2_a1"), t("experience.a2_a2")] },
+    { id: 3, role: t("experience.a3_role"), company: t("experience.a3_company"), period: t("experience.a3_period"), location: t("experience.a3_location"), achievements: [t("experience.a3_a1"), t("experience.a3_a2")] },
+  ];
+
   const items = activeTab === "work" ? WORK : ACADEMIC;
   const selected = items[active] ?? items[0];
 
