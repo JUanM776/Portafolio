@@ -1,33 +1,7 @@
 ﻿"use client";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "framer-motion";
-
-const STATS = [
-  {
-    value: 5,
-    suffix: "°",
-    label: "Semestre cursado",
-    description: "Ingeniería de Software — U. Cooperativa Pasto",
-  },
-  {
-    value: 14,
-    suffix: "+",
-    label: "Tecnologías aprendidas",
-    description: "Python, Java, React, Vite, Next.js y más",
-  },
-  {
-    value: 2,
-    suffix: "+",
-    label: "Años programando",
-    description: "Aprendiendo y construyendo desde el primer semestre",
-  },
-  {
-    value: 100,
-    suffix: "%",
-    label: "Formación integral",
-    description: "Frontend, backend, arquitectura y diseño de software",
-  },
-];
+import { useLang } from "@/context/LanguageContext";
 
 function CountUp({ target, suffix, inView }: { target: number; suffix: string; inView: boolean }) {
   const [count, setCount] = useState(0);
@@ -55,6 +29,14 @@ function CountUp({ target, suffix, inView }: { target: number; suffix: string; i
 export default function Stats() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { t } = useLang();
+
+  const STATS = [
+    { value: 5, suffix: "\u00B0", label: t("stats.semester"), description: t("stats.semesterDesc") },
+    { value: 14, suffix: "+", label: t("stats.technologies"), description: t("stats.technologiesDesc") },
+    { value: 2, suffix: "+", label: t("stats.years"), description: t("stats.yearsDesc") },
+    { value: 100, suffix: "%", label: t("stats.formation"), description: t("stats.formationDesc") },
+  ];
 
   return (
     <section ref={ref} className="py-16 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Estadisticas">

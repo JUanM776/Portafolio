@@ -1,4 +1,4 @@
-﻿// components/Projects.tsx
+// components/Projects.tsx
 "use client";
 import { useLang } from "@/context/LanguageContext";
 
@@ -8,8 +8,7 @@ const PROJECTS = [
     title: "Freshcut",
     category: "APP",
     year: "2025",
-    description:
-      "Freshcut no es solo una app de barbería, es una herramienta para llevar este negocio a un nivel más profesional y organizado, centralizando citas, clientes, historial e ingresos en un solo lugar. Además, integra inteligencia artificial que analiza el rostro del usuario para recomendar el mejor corte y mostrar una vista previa de cómo se vería. Más que funciones, resuelve problemas reales del día a día, optimizando el tiempo y mejorando la experiencia. Freshcut es tecnología aplicada a lo cotidiano, pensada para hacer la barbería más eficiente y escalable.",
+    descKey: "projects.freshcut.desc",
     tags: ["TypeScript", "CSS", "HTML", "JavaScript"],
     featured: true,
     gradient: "from-[#1a1508] to-[#0f0f0f]",
@@ -21,8 +20,7 @@ const PROJECTS = [
     title: "Mercado libre Clone",
     category: "Software empresarial",
     year: "2026",
-    description:
-      "En un trabajo colaborativo se desarrolló un clon de Mercado Libre enfocado en fortalecer habilidades para crear aplicaciones a gran escala, abordando retos reales de arquitectura, rendimiento y organización del código. El proyecto incluyó funcionalidades clave como gestión de productos, navegación, búsqueda y experiencia de usuario. Más que replicar una plataforma, permitió entender cómo se construyen sistemas robustos y escalables en equipo. Fue una experiencia enfocada en buenas prácticas, trabajo colaborativo y desarrollo profesional.",
+    descKey: "projects.mercadolibre.desc",
     tags: ["HTML", "CSS", "JavaScript"],
     featured: false,
     gradient: "from-[#0c1018] to-[#0f0f0f]",
@@ -76,7 +74,7 @@ export default function Projects() {
                 {p.title}
               </h3>
               <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "var(--text-secondary)" }}>
-                {p.description}
+                {t(p.descKey)}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">

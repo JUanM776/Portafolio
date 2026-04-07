@@ -3,51 +3,32 @@
 import { useState, useEffect } from "react";
 import { useLang } from "@/context/LanguageContext";
 
-const INTERESTS = [
-  {
-    emoji: "🎵",
-    title: "Música",
-    description: "Me gusta componer música y tocar guitarra, piano, bongos y algunos instrumentos andinos. Eso me llevó a participar en el Desfile Magno y los Carnavales de Negros y Blancos de Pasto.",
-    images: [
-      { src: "/interests/Esteban_Rojas.jpg", pos: "center" },
-      { src: "/interests/Bongos.jpg" },
-      { src: "/interests/Carnaval.JPG" },
-      { src: "/interests/chuyin.jpg" },
-    ],
-  },
-  {
-    emoji: "⚽",
-    title: "Fútbol",
-    description: "Me gusta jugar casualmente fútbol. Mis equipos favoritos son el Real Madrid y el Deportivo Pasto. Mi jugador favorito es Cristiano Ronaldo",
-    images: [
-      { src: "/interests/Real_Madrid.jpg", pos: "center" },
-      { src: "/interests/cristiano.jpg", pos: "top center" },
-      { src: "/interests/Deportivo_Pasto.jpg", pos: "center" },
-      { src: "/interests/estadio.jpg", pos: "center" },
-    ],
-  },
-  {
-    emoji: "📷",
-    title: "Fotografia",
-    description: "Me gusta mucho los paisajes y arquitecturas, cosas que decido inmortalizar con la fotografia disciplina de la que tengo conocimiento",
-    images: [
-      { src: "/interests/Pausa_coffee.jpg", pos: "center" },
-      { src: "/interests/laws_co.jpg", pos: "top center" },
-      { src: "/interests/fuente.jpg", pos: "top center" },
-      { src: "/interests/lamparas.jpg" },
-    ],
-  },
-  {
-    emoji: "🌍",
-    title: "Viajes",
-    description: "Me gusta conocer nuevos lugares, ya que pienso es conocer un poco mas de la cultura de las personas y de nuevas oportunidades. Tambien me gusta explorar y conocer nuevos lugares lo que me ha llevado a conocer gran parte de Colombia",
-    images: [
-      { src: "/interests/Comuna.jpg" },
-      { src: "/interests/Cali.jpg" },
-      { src: "/interests/sandona.jpg", pos: "bottom center" },
-      { src: "/interests/yop.jpg", pos: "top center" },
-    ],
-  },
+const INTEREST_IMAGES = [
+  { key: "music", emoji: "\uD83C\uDFB5", images: [
+    { src: "/interests/Esteban_Rojas.jpg", pos: "center" },
+    { src: "/interests/Bongos.jpg" },
+    { src: "/interests/Carnaval.JPG" },
+    { src: "/interests/chuyin.jpg" },
+  ]},
+  { key: "football", emoji: "\u26BD", images: [
+    { src: "/interests/Real_Madrid.jpg", pos: "center" },
+    { src: "/interests/cristiano.jpg", pos: "top center" },
+    { src: "/interests/Deportivo_Pasto.jpg", pos: "center" },
+    { src: "/interests/estadio.jpg", pos: "center" },
+  ]},
+  { key: "photo", emoji: "\uD83D\uDCF7", images: [
+    { src: "/interests/Pausa_coffee.jpg", pos: "center" },
+    { src: "/interests/laws_co.jpg", pos: "top center" },
+    { src: "/interests/fuente.jpg", pos: "top center" },
+    { src: "/interests/lamparas.jpg" },
+  ]},
+  { key: "travel", emoji: "\uD83C\uDF0D", images: [
+    { src: "/interests/Comuna.jpg" },
+    { src: "/interests/Cali.jpg" },
+    { src: "/interests/sandona.jpg", pos: "bottom center" },
+    { src: "/interests/yop.jpg", pos: "top center" },
+  ]},
+  { key: "other", emoji: "\u2615", images: [] },
 ];
 
 type ImageItem = { src: string; pos?: string } | string;
@@ -167,15 +148,15 @@ export default function AboutMe() {
           {t("about.title")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INTERESTS.map(({ emoji, title, description, images }, i) => (
-            <div key={title} className="reveal card-lift border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-sm overflow-hidden" style={{ animationDelay: `${(i + 1) * 0.1}s` }}>
-              <ImageCarousel images={images as ImageItem[]} emoji={emoji} title={title} />
+          {INTEREST_IMAGES.map(({ key, emoji, images }, i) => (
+            <div key={key} className="reveal card-lift border border-[var(--border)] bg-[var(--surface)]/60 backdrop-blur-sm rounded-sm overflow-hidden" style={{ animationDelay: `${(i + 1) * 0.1}s` }}>
+              <ImageCarousel images={images as ImageItem[]} emoji={emoji} title={t(`interests.${key}.title`)} />
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xl">{emoji}</span>
-                  <h3 className="font-display text-xl text-[var(--text)]">{title}</h3>
+                  <h3 className="font-display text-xl text-[var(--text)]">{t(`interests.${key}.title`)}</h3>
                 </div>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{description}</p>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">{t(`interests.${key}.desc`)}</p>
               </div>
             </div>
           ))}

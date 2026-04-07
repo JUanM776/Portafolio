@@ -28,15 +28,15 @@ export default function Home() {
       <div className="relative" style={{ zIndex: 1 }}>
         <Navbar />
         <AboutMe />
-        <SectionDivider labelKey="stats.semester" />
+        <SectionDivider labelKey="dividers.stats" />
         <Stats />
-        <SectionDivider labelKey="skills.label" />
+        <SectionDivider labelKey="dividers.skills" />
         <Skills />
-        <SectionDivider labelKey="projects.label" />
+        <SectionDivider labelKey="dividers.projects" />
         <Projects />
-        <SectionDivider labelKey="testimonials.label" />
+        <SectionDivider labelKey="dividers.testimonials" />
         <Testimonials />
-        <SectionDivider labelKey="experience.label" />
+        <SectionDivider labelKey="dividers.experience" />
         <Experience />
         <Footer />
       </div>

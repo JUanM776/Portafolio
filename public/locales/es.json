@@ -7,16 +7,21 @@
     "cv": "CV"
   },
   "hero": {
-    "greeting": "Hola, mundo",
-    "description": "Estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia, campus Pasto. Principalmente atraído por el desarrollo frontend, donde combino lógica y diseño para construir interfaces que realmente se sienten bien.",
+    "description": "Estudiante de Ingenieria de Software en la Universidad Cooperativa de Colombia, campus Pasto. Principalmente atraido por el desarrollo frontend, donde combino logica y diseno para construir interfaces que realmente se sienten bien.",
     "cta": "Ver mi trabajo"
   },
   "about": {
-    "label": "Fuera del código",
-    "title": "Un poco sobre mí"
+    "title": "Un poco sobre mi"
   },
   "spotify": {
     "label": "Lo que escucho"
+  },
+  "interests": {
+    "music": { "title": "Musica", "desc": "Me gusta componer musica y tocar guitarra, piano, bongos y algunos instrumentos andinos. Eso me llevo a participar en el Desfile Magno y los Carnavales de Negros y Blancos de Pasto." },
+    "football": { "title": "Futbol", "desc": "Me gusta jugar casualmente futbol. Mis equipos favoritos son el Real Madrid y el Deportivo Pasto. Mi jugador favorito es Cristiano Ronaldo" },
+    "photo": { "title": "Fotografia", "desc": "Me gusta mucho los paisajes y arquitecturas, cosas que decido inmortalizar con la fotografia disciplina de la que tengo conocimiento" },
+    "travel": { "title": "Viajes", "desc": "Me gusta conocer nuevos lugares, ya que pienso es conocer un poco mas de la cultura de las personas y de nuevas oportunidades. Tambien me gusta explorar y conocer nuevos lugares lo que me ha llevado a conocer gran parte de Colombia" },
+    "other": { "title": "Algo mas", "desc": "Ese hobby o pasion extra que no encaja en ninguna categoria pero te define." }
   },
   "skills": {
     "label": "Lo que uso",
@@ -26,7 +31,9 @@
   "projects": {
     "label": "Trabajo seleccionado",
     "title": "Proyectos",
-    "viewProject": "Ver proyecto"
+    "viewProject": "Ver proyecto",
+    "freshcut": { "desc": "Freshcut no es solo una app de barberia, es una herramienta para llevar este negocio a un nivel mas profesional y organizado, centralizando citas, clientes, historial e ingresos en un solo lugar. Ademas, integra inteligencia artificial que analiza el rostro del usuario para recomendar el mejor corte y mostrar una vista previa de como se veria." },
+    "mercadolibre": { "desc": "En un trabajo colaborativo se desarrollo un clon de Mercado Libre enfocado en fortalecer habilidades para crear aplicaciones a gran escala, abordando retos reales de arquitectura, rendimiento y organizacion del codigo." }
   },
   "testimonials": {
     "label": "Opiniones",
@@ -40,7 +47,7 @@
   },
   "footer": {
     "label": "Hablemos",
-    "title": "¿Trabajamos juntos?",
+    "title": "Trabajamos juntos?",
     "description": "Estoy disponible para proyectos, colaboraciones y oportunidades. No dudes en escribirme.",
     "send": "Enviar mensaje",
     "download": "Descargar CV",
@@ -55,13 +62,13 @@
   },
   "stats": {
     "semester": "Semestre cursado",
-    "semesterDesc": "Ingeniería de Software — U. Cooperativa Pasto",
-    "technologies": "Tecnologías aprendidas",
-    "technologiesDesc": "Python, Java, React, Vite, Next.js y más",
-    "years": "Años programando",
+    "semesterDesc": "Ingenieria de Software — U. Cooperativa Pasto",
+    "technologies": "Tecnologias aprendidas",
+    "technologiesDesc": "Python, Java, React, Vite, Next.js y mas",
+    "years": "Anos programando",
     "yearsDesc": "Aprendiendo y construyendo desde el primer semestre",
-    "formation": "Formación integral",
-    "formationDesc": "Frontend, backend, arquitectura y diseño de software"
+    "formation": "Formacion integral",
+    "formationDesc": "Frontend, backend, arquitectura y diseno de software"
   },
   "avatar": {
     "about": "Hola! Soy Juan Manuel\nBienvenido a mi portafolio",
@@ -70,5 +77,12 @@
     "testimonials": "Lo que dicen quienes\nhan trabajado conmigo",
     "experience": "Mi recorrido\nprofesional hasta hoy",
     "default": "Explora mi portafolio\nhaciendo scroll"
+  },
+  "dividers": {
+    "stats": "Estadisticas",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "experience": "Experiencia"
   }
 }

@@ -7,16 +7,21 @@
     "cv": "CV"
   },
   "hero": {
-    "greeting": "Hello, world",
     "description": "Software Engineering student at Universidad Cooperativa de Colombia, Pasto campus. Mainly drawn to frontend development, where I combine logic and design to build interfaces that truly feel good.",
     "cta": "See my work"
   },
   "about": {
-    "label": "Outside the code",
     "title": "A little about me"
   },
   "spotify": {
     "label": "What I listen to"
+  },
+  "interests": {
+    "music": { "title": "Music", "desc": "I enjoy composing music and playing guitar, piano, bongos and some Andean instruments. This led me to participate in the Grand Parade and the Black and White Carnival of Pasto." },
+    "football": { "title": "Football", "desc": "I enjoy playing football casually. My favorite teams are Real Madrid and Deportivo Pasto. My favorite player is Cristiano Ronaldo." },
+    "photo": { "title": "Photography", "desc": "I really enjoy landscapes and architecture, things I choose to immortalize through photography, a discipline I have knowledge in." },
+    "travel": { "title": "Travel", "desc": "I enjoy discovering new places, as I believe it means learning more about people's culture and new opportunities. I also like to explore, which has led me to know a great part of Colombia." },
+    "other": { "title": "Something else", "desc": "That extra hobby or passion that doesn't fit any category but defines you." }
   },
   "skills": {
     "label": "What I use",
@@ -26,7 +31,9 @@
   "projects": {
     "label": "Selected work",
     "title": "Projects",
-    "viewProject": "View project"
+    "viewProject": "View project",
+    "freshcut": { "desc": "Freshcut is not just a barbershop app, it's a tool to take this business to a more professional and organized level, centralizing appointments, clients, history and income in one place. It also integrates artificial intelligence that analyzes the user's face to recommend the best haircut and show a preview." },
+    "mercadolibre": { "desc": "In a collaborative effort, a Mercado Libre clone was developed focused on strengthening skills to create large-scale applications, addressing real challenges of architecture, performance and code organization." }
   },
   "testimonials": {
     "label": "Kind words",
@@ -70,5 +77,12 @@
     "testimonials": "What those who have\nworked with me say",
     "experience": "My professional\njourney so far",
     "default": "Explore my portfolio\nby scrolling"
+  },
+  "dividers": {
+    "stats": "Statistics",
+    "skills": "Skills",
+    "projects": "Projects",
+    "testimonials": "Testimonials",
+    "experience": "Experience"
   }
 }
