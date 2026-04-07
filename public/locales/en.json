@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "testimonials": "Testimonials",
+    "experience": "Experience",
+    "cv": "CV"
+  },
+  "hero": {
+    "greeting": "Hello, world",
+    "description": "Software Engineering student at Universidad Cooperativa de Colombia, Pasto campus. Mainly drawn to frontend development, where I combine logic and design to build interfaces that truly feel good.",
+    "cta": "See my work"
+  },
+  "about": {
+    "label": "Outside the code",
+    "title": "A little about me"
+  },
+  "spotify": {
+    "label": "What I listen to"
+  },
+  "skills": {
+    "label": "What I use",
+    "title": "Skills",
+    "description": "These are the technologies I work with every day, always learning something new."
+  },
+  "projects": {
+    "label": "Selected work",
+    "title": "Projects",
+    "viewProject": "View project"
+  },
+  "testimonials": {
+    "label": "Kind words",
+    "title": "Testimonials"
+  },
+  "experience": {
+    "label": "Background",
+    "title": "Experience",
+    "work": "Work",
+    "academic": "Academic"
+  },
+  "footer": {
+    "label": "Let's talk",
+    "title": "Work together?",
+    "description": "I'm available for projects, collaborations and opportunities. Feel free to reach out.",
+    "send": "Send message",
+    "download": "Download CV",
+    "contact": "Direct contact",
+    "networks": "Networks",
+    "rights": "All rights reserved.",
+    "made": "Made with",
+    "in": "in Pasto, Colombia",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Your message"
+  },
+  "stats": {
+    "semester": "Semester completed",
+    "semesterDesc": "Software Engineering — U. Cooperativa Pasto",
+    "technologies": "Technologies learned",
+    "technologiesDesc": "Python, Java, React, Vite, Next.js and more",
+    "years": "Years coding",
+    "yearsDesc": "Learning and building since the first semester",
+    "formation": "Integral formation",
+    "formationDesc": "Frontend, backend, software architecture and design"
+  },
+  "avatar": {
+    "about": "Hi! I'm Juan Manuel\nWelcome to my portfolio",
+    "skills": "These are the technologies\nI work with",
+    "projects": "Here you can see\nmy projects",
+    "testimonials": "What those who have\nworked with me say",
+    "experience": "My professional\njourney so far",
+    "default": "Explore my portfolio\nby scrolling"
+  }
+}

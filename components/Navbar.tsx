@@ -5,17 +5,20 @@
 
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
-
-const NAV_LINKS = [
-  { label: "Acerca", href: "#about" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Testimonios", href: "#testimonials" },
-  { label: "Experiencia", href: "#experience" },
-];
+import LanguageToggle from "./LanguageToggle";
+import { useLang } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { t } = useLang();
+
+  const NAV_LINKS = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.testimonials"), href: "#testimonials" },
+    { label: t("nav.experience"), href: "#experience" },
+  ];
 
   // Add glass background once user scrolls past the hero
   useEffect(() => {
@@ -71,6 +74,7 @@ export default function Navbar() {
 
         {/* â”€â”€ CV button + hamburger (flex row) â”€â”€ */}
         <div className="flex items-center gap-3">
+          <LanguageToggle />
           <ThemeToggle />
           {/* CV button â€” opens PDF in a new tab
               Place your CV at /public/CV.pdf to make this work */}

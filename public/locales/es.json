@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "about": "Acerca",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "experience": "Experiencia",
+    "cv": "CV"
+  },
+  "hero": {
+    "greeting": "Hola, mundo",
+    "description": "Estudiante de Ingeniería de Software en la Universidad Cooperativa de Colombia, campus Pasto. Principalmente atraído por el desarrollo frontend, donde combino lógica y diseño para construir interfaces que realmente se sienten bien.",
+    "cta": "Ver mi trabajo"
+  },
+  "about": {
+    "label": "Fuera del código",
+    "title": "Un poco sobre mí"
+  },
+  "spotify": {
+    "label": "Lo que escucho"
+  },
+  "skills": {
+    "label": "Lo que uso",
+    "title": "Skills",
+    "description": "Estas son las tecnologias con las que trabajo dia a dia, siempre aprendiendo algo nuevo."
+  },
+  "projects": {
+    "label": "Trabajo seleccionado",
+    "title": "Proyectos",
+    "viewProject": "Ver proyecto"
+  },
+  "testimonials": {
+    "label": "Opiniones",
+    "title": "Testimonios"
+  },
+  "experience": {
+    "label": "Trayectoria",
+    "title": "Experiencia",
+    "work": "Laboral",
+    "academic": "Academico"
+  },
+  "footer": {
+    "label": "Hablemos",
+    "title": "¿Trabajamos juntos?",
+    "description": "Estoy disponible para proyectos, colaboraciones y oportunidades. No dudes en escribirme.",
+    "send": "Enviar mensaje",
+    "download": "Descargar CV",
+    "contact": "Contacto directo",
+    "networks": "Redes",
+    "rights": "Todos los derechos reservados.",
+    "made": "Hecho con",
+    "in": "en Pasto, Colombia",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Tu mensaje"
+  },
+  "stats": {
+    "semester": "Semestre cursado",
+    "semesterDesc": "Ingeniería de Software — U. Cooperativa Pasto",
+    "technologies": "Tecnologías aprendidas",
+    "technologiesDesc": "Python, Java, React, Vite, Next.js y más",
+    "years": "Años programando",
+    "yearsDesc": "Aprendiendo y construyendo desde el primer semestre",
+    "formation": "Formación integral",
+    "formationDesc": "Frontend, backend, arquitectura y diseño de software"
+  },
+  "avatar": {
+    "about": "Hola! Soy Juan Manuel\nBienvenido a mi portafolio",
+    "skills": "Estas son las tecnologias\ncon las que trabajo",
+    "projects": "Aqui puedes ver\nmis proyectos",
+    "testimonials": "Lo que dicen quienes\nhan trabajado conmigo",
+    "experience": "Mi recorrido\nprofesional hasta hoy",
+    "default": "Explora mi portafolio\nhaciendo scroll"
+  }
+}
