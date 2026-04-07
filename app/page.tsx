@@ -1,4 +1,5 @@
 // app/page.tsx — Root page: composes all portfolio sections
+"use client";
 import Navbar from "@/components/Navbar";
 import AboutMe from "@/components/AboutMe";
 import Stats from "@/components/Stats";
