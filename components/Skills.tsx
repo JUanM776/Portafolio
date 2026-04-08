@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
@@ -121,7 +121,7 @@ function SkillCard({ name, icon, color, index, darkIcon }: {
 export default function Skills() {
   const { t } = useLang();
   return (
-    <section id="skills" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Habilidades tecnicas">
+    <section id="skills" className="py-14 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Habilidades tecnicas">
 
       {/* Header centrado */}
       <div className="flex flex-col items-center text-center mb-14">

@@ -40,8 +40,8 @@ function ArrowIcon() {
 export default function Projects() {
   const { t } = useLang();
   return (
-    <section id="projects" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Proyectos">
-      <hr className="section-rule mb-16" />
+    <section id="projects" className="py-14 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Proyectos">
+      <hr className="section-rule mb-10" />
 
       <header className="flex flex-col gap-4 mb-12">
         <p className="label-tag mb-3">{t("projects.label")}</p>

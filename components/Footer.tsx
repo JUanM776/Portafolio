@@ -63,7 +63,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-8 border-t border-[var(--border)]" role="contentinfo" aria-label="Pie de pagina">
-      <div className="backdrop-blur-sm py-12 sm:py-20 px-6 md:px-10" style={{ background: "var(--card)" }}>
+      <div className="backdrop-blur-sm py-10 sm:py-14 px-6 md:px-10" style={{ background: "var(--card)" }}>
         <div className="max-w-2xl mx-auto">
           <p className="label-tag justify-center mb-6">{t("footer.label")}</p>
           <h2 className="font-display text-4xl md:text-6xl text-[var(--text)] mb-6 text-center leading-tight">

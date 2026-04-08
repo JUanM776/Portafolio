@@ -94,7 +94,7 @@ function ImageCarousel({ images, emoji, title }: { images: ImageItem[]; emoji: s
 export default function AboutMe() {
   const { t } = useLang();
   return (
-    <section id="about" className="noise relative flex flex-col pt-24 pb-20 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Acerca de mi">
+    <section id="about" className="noise relative flex flex-col pt-24 pb-10 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Acerca de mi">
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center min-h-screen">
         <div className="lg:col-span-7 lg:pr-16 order-2 lg:order-1 relative z-10">

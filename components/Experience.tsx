@@ -24,8 +24,8 @@ export default function Experience() {
   const selected = items[active] ?? items[0];
 
   return (
-    <section id="experience" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Experiencia">
-      <hr className="section-rule mb-16" />
+    <section id="experience" className="py-14 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Experiencia">
+      <hr className="section-rule mb-10" />
 
       {/* Header */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">

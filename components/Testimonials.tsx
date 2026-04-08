@@ -18,8 +18,8 @@ function QuoteMark({ color }: { color: string }) {
 export default function Testimonials() {
   const { t } = useLang();
   return (
-    <section id="testimonials" className="py-24 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Testimonios">
-      <hr className="section-rule mb-16" />
+    <section id="testimonials" className="py-14 px-6 md:px-10 max-w-7xl mx-auto" aria-label="Testimonios">
+      <hr className="section-rule mb-10" />
 
       {/* Header — flex row */}
       <header className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
