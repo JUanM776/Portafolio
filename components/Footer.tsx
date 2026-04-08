@@ -127,9 +127,6 @@ export default function Footer() {
               >
                 Enviar mensaje
               </button>
-              <a href="/CV.pdf" target="_blank" rel="noopener noreferrer" className="border border-[var(--border)] bg-[var(--surface)] text-[var(--text-secondary)] text-xs font-medium tracking-widest uppercase px-8 py-3.5 rounded-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">
-                Descargar CV
-              </a>
             </div>
           </form>
         </div>
