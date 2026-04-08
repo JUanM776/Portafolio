@@ -2,6 +2,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useLang } from "@/context/LanguageContext";
+import { motion } from "framer-motion";
 
 const INTEREST_IMAGES = [
   { key: "music", emoji: "\uD83C\uDFB5", images: [
@@ -112,32 +113,58 @@ export default function AboutMe() {
           </div>
         </div>
 
-        <div className="reveal delay-200 lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[500px] group">
+        <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[500px] group"
+          >
             {/* Borde gradiente animado */}
-            <div className="absolute -inset-1 rounded-2xl animate-spin-slow"
-              style={{ background: "conic-gradient(from 0deg, var(--accent), transparent, var(--accent), transparent, var(--accent))" }} />
+            <div className="absolute -inset-[3px] rounded-2xl animate-spin-slow opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+              style={{ background: "conic-gradient(from 0deg, var(--accent), transparent 30%, var(--accent) 50%, transparent 80%, var(--accent))" }} />
+
+            {/* Fondo interno para tapar el gradiente */}
+            <div className="absolute inset-0 rounded-2xl" style={{ background: "var(--surface)" }} />
 
             {/* Glow */}
-            <div className="absolute -inset-6 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 blur-3xl" style={{ background: "var(--accent)" }} />
+            <motion.div
+              animate={{ opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-8 rounded-3xl blur-3xl"
+              style={{ background: "var(--accent)" }}
+            />
 
-            {/* Puntos decorativos */}
-            <div className="absolute -top-3 -right-3 w-3 h-3 rounded-full" style={{ background: "var(--accent)" }} />
-            <div className="absolute -bottom-3 -left-3 w-2.5 h-2.5 rounded-full opacity-70" style={{ background: "var(--accent)" }} />
-            <div className="absolute top-1/3 -left-5 w-1.5 h-1.5 rounded-full opacity-40" style={{ background: "var(--accent)" }} />
-            <div className="absolute bottom-1/4 -right-4 w-2 h-2 rounded-full opacity-50" style={{ background: "var(--accent)" }} />
+            {/* Orbiting dots */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-6"
+            >
+              <div className="absolute top-0 left-1/2 w-2 h-2 rounded-full" style={{ background: "var(--accent)" }} />
+              <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 rounded-full opacity-60" style={{ background: "var(--accent)" }} />
+              <div className="absolute top-1/3 right-0 w-1 h-1 rounded-full opacity-40" style={{ background: "var(--accent)" }} />
+            </motion.div>
 
-            {/* Foto */}
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+            {/* Foto con clip-path reveal */}
+            <motion.div
+              initial={{ clipPath: "inset(100% 0 0 0)" }}
+              animate={{ clipPath: "inset(0% 0 0 0)" }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl"
+            >
               <img
                 src="/Foto_portafolio.jpeg"
                 alt="Juan Manuel Cordoba Florez"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              {/* Gradiente inferior */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            </div>
-          </div>
+            </motion.div>
+
+            {/* Esquinas decorativas */}
+            <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 rounded-tl-lg" style={{ borderColor: "var(--accent)" }} />
+            <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 rounded-br-lg" style={{ borderColor: "var(--accent)" }} />
+          </motion.div>
         </div>
       </div>
 
