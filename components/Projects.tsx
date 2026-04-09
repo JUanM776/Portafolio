@@ -10,7 +10,7 @@ const PROJECTS = [
     year: "2025",
     descKey: "projects.freshcut.desc",
     tags: ["TypeScript", "CSS", "HTML", "JavaScript"],
-    featured: true,
+    featured: false,
     image: "/projects/freshcut.png",
     accent: "#93c5fd",
     link: "https://fresh-cut-frontend.vercel.app/",
@@ -39,6 +39,18 @@ const PROJECTS = [
     accent: "#1db954",
     link: "https://spottunes.vercel.app",
   },
+  {
+    id: 4,
+    title: "CalcGraf",
+    category: "APP Web",
+    year: "2025 — 2026",
+    descKey: "projects.calcgraf.desc",
+    tags: ["TypeScript", "CSS", "JavaScript", "HTML"],
+    featured: false,
+    image: "/projects/Calculadora.png",
+    accent: "#8b5cf6",
+    link: "https://multi-viz-calc.vercel.app",
+  },
 ];
 
 function ArrowIcon() {
@@ -62,13 +74,11 @@ export default function Projects() {
         </h2>
       </header>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 list-none">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-5 list-none">
         {PROJECTS.map((p) => (
           <li
             key={p.id}
-            className={`card-lift group relative rounded-xl overflow-hidden border ${
-              p.featured ? "sm:col-span-2 xl:col-span-2" : ""
-            }`}
+            className="card-lift group relative rounded-xl overflow-hidden border"
             style={{ borderColor: "var(--card-border)", background: "var(--card)" }}
           >
             {/* Preview image */}

@@ -34,7 +34,8 @@
     "viewProject": "View project",
     "freshcut": { "desc": "Freshcut is not just a barbershop app, it's a tool to take this business to a more professional and organized level, centralizing appointments, clients, history and income in one place. It also integrates artificial intelligence that analyzes the user's face to recommend the best haircut and show a preview." },
     "mercadolibre": { "desc": "In a collaborative effort, a Mercado Libre clone was developed focused on strengthening skills to create large-scale applications, addressing real challenges of architecture, performance and code organization." },
-    "spottunes": { "desc": "Spot-tunes was born in 2025 as an experimental project and evolved into a solid web app, with an experience very close to platforms like Spotify. It offers song previews and full playback control: forward, rewind, repeat and change tracks, all with a fluid and intuitive interface. Deployed on Vercel, optimized for performance and designed to scale." }
+    "spottunes": { "desc": "Spot-tunes was born in 2025 as an experimental project and evolved into a solid web app, with an experience very close to platforms like Spotify. It offers song previews and full playback control: forward, rewind, repeat and change tracks, all with a fluid and intuitive interface. Deployed on Vercel, optimized for performance and designed to scale." },
+    "calcgraf": { "desc": "CalcGraf is a web app focused on multivariable calculus and 3D visualization. It allows graphing functions in real time, evaluating points, calculating double integrals and visualizing tangent planes with precision. Its interface is modern, fluid and intuitive, designed to understand complex concepts visually. More than a calculator, it's a platform to explore and analyze mathematics at another level." }
   },
   "testimonials": {
     "label": "Kind words",
