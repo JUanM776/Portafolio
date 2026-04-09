@@ -11,7 +11,7 @@ const PROJECTS = [
     descKey: "projects.freshcut.desc",
     tags: ["TypeScript", "CSS", "HTML", "JavaScript"],
     featured: true,
-    gradient: "from-[#1a1508] to-[#0f0f0f]",
+    image: "/projects/freshcut.png",
     accent: "#93c5fd",
     link: "https://fresh-cut-frontend.vercel.app/",
   },
@@ -23,7 +23,7 @@ const PROJECTS = [
     descKey: "projects.mercadolibre.desc",
     tags: ["HTML", "CSS", "JavaScript"],
     featured: false,
-    gradient: "from-[#0c1018] to-[#0f0f0f]",
+    image: "/projects/mercado_libre.png",
     accent: "#5b8fd4",
     link: "https://edben110.github.io/MercadoLibre-Clone/",
   },
@@ -59,21 +59,29 @@ export default function Projects() {
             }`}
             style={{ borderColor: "var(--card-border)", background: "var(--card)" }}
           >
-            {/* Accent top */}
-            <div className="absolute top-0 inset-x-0 h-px" style={{ background: p.accent }} />
+            {/* Preview image */}
+            <a href={p.link} target="_blank" rel="noopener noreferrer" className="block relative overflow-hidden">
+              <img
+                src={p.image}
+                alt={`Preview de ${p.title}`}
+                className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </a>
 
-            <div className="p-7 flex flex-col h-full min-h-[240px]">
-              <div className="flex items-center justify-between mb-4">
+            <div className="p-6 flex flex-col flex-1">
+              <div className="flex items-center justify-between mb-3">
                 <span className="text-[10px] tracking-widest uppercase font-medium" style={{ color: p.accent }}>
                   {p.category}
                 </span>
                 <span className="text-[10px] font-medium" style={{ color: "var(--text-muted)" }}>{p.year}</span>
               </div>
 
-              <h3 className="font-display text-2xl md:text-3xl mb-3" style={{ color: "var(--text)" }}>
+              <h3 className="font-display text-xl md:text-2xl mb-2" style={{ color: "var(--text)" }}>
                 {p.title}
               </h3>
-              <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: "var(--text-secondary)" }}>
+              <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "var(--text-secondary)" }}>
                 {t(p.descKey)}
               </p>
 
