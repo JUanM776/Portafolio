@@ -25,6 +25,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const initial = saved || "es";
     setLangState(initial);
     loadTranslations(initial);
+    document.documentElement.lang = initial;
   }, []);
 
   const loadTranslations = async (l: Lang) => {
@@ -37,6 +38,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLangState(l);
     localStorage.setItem("lang", l);
     loadTranslations(l);
+    document.documentElement.lang = l;
   };
 
   const t = (key: string): string => {
