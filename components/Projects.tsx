@@ -27,6 +27,18 @@ const PROJECTS = [
     accent: "#5b8fd4",
     link: "https://edben110.github.io/MercadoLibre-Clone/",
   },
+  {
+    id: 3,
+    title: "Spot-tunes",
+    category: "APP Web",
+    year: "2025 — 2026",
+    descKey: "projects.spottunes.desc",
+    tags: ["HTML", "CSS", "JavaScript"],
+    featured: false,
+    image: "/projects/Spot-tunes.png",
+    accent: "#1db954",
+    link: "https://spottunes.vercel.app",
+  },
 ];
 
 function ArrowIcon() {

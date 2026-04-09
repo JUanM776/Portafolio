@@ -33,7 +33,8 @@
     "title": "Proyectos",
     "viewProject": "Ver proyecto",
     "freshcut": { "desc": "Freshcut no es solo una app de barberia, es una herramienta para llevar este negocio a un nivel mas profesional y organizado, centralizando citas, clientes, historial e ingresos en un solo lugar. Ademas, integra inteligencia artificial que analiza el rostro del usuario para recomendar el mejor corte y mostrar una vista previa de como se veria." },
-    "mercadolibre": { "desc": "En un trabajo colaborativo se desarrollo un clon de Mercado Libre enfocado en fortalecer habilidades para crear aplicaciones a gran escala, abordando retos reales de arquitectura, rendimiento y organizacion del codigo." }
+    "mercadolibre": { "desc": "En un trabajo colaborativo se desarrollo un clon de Mercado Libre enfocado en fortalecer habilidades para crear aplicaciones a gran escala, abordando retos reales de arquitectura, rendimiento y organizacion del codigo." },
+    "spottunes": { "desc": "Spot-tunes nacio en 2025 como un proyecto experimental y evoluciono a una web app solida, con una experiencia muy cercana a plataformas como Spotify. Ofrece previsualizacion de canciones y control completo de reproduccion: adelantar, retroceder, repetir y cambiar pistas, todo con una interfaz fluida e intuitiva. Desplegada en Vercel, optimizada para rendimiento y pensada para escalar." }
   },
   "testimonials": {
     "label": "Opiniones",
