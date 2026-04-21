@@ -120,13 +120,6 @@ export default function AboutMe() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[500px] group"
           >
-            {/* Borde gradiente animado */}
-            <div className="absolute -inset-[3px] rounded-2xl animate-spin-slow opacity-70 group-hover:opacity-100 transition-opacity duration-500"
-              style={{ background: "conic-gradient(from 0deg, var(--accent), transparent 30%, var(--accent) 50%, transparent 80%, var(--accent))" }} />
-
-            {/* Fondo interno para tapar el gradiente */}
-            <div className="absolute inset-0 rounded-2xl" style={{ background: "var(--surface)" }} />
-
             {/* Glow */}
             <motion.div
               animate={{ opacity: [0.15, 0.3, 0.15] }}
